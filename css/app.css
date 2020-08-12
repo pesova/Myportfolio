@@ -1,0 +1,17 @@
+.texttypeloop h4 {
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.texttypeloop h4 span.typed-text {
+    font-weight: bolder;
+    color: #1F1558;
+}
+
+.texttypeloop h4 span.TypeCursor {
+    animation: blink 1s infinite;
+}
+
+.texttypeloop h4 span.TypeCursor.typing {
+    animation: none;
+}
