@@ -236,7 +236,7 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Capabilities</h2>
                 <h3 class="section-subheading text-muted">Things I Can Do</h3>
-                <div class="texttypeloop" ><h4 class="section-subheading text-muted" >I <span class="typed-text"></span><span class="TypeCursor">&nbsp;</span></h4></div>            
+                <div class="texttypeloop" ><p class="section-subheading text-muted" >I <span class="typed-text"></span><span class="TypeCursor">&nbsp;</span></p></div>            
                                 
             </div>
             <br>
