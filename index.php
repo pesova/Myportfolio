@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -70,7 +69,7 @@
                     My programming experience has been both challenging and fun working on programming projects with the added thrill of being able to communicate directly with my computer.</b></p>
 
                     <p style="color: #acacbd" class=""><b>I Am Very Good at Cordinating Teams and love to share what I know through teaching. I specialize in helping others learn how to code and I believe anything can be overcome through commitment and hardwork. I'm always up for new things. From a technical standpoint, I
-                        spend most of my time working with HTML5, CSS3, JavaScript and PhP.             
+                        spend most of my time working with HTML5, CSS3, JavaScript and PhP.
                         When not creating websites, I like to play video games.</b></p>
                     <br>
                 </div>
@@ -83,7 +82,7 @@
     </section>
 
     <!--TIMELINE-->
-    <section style="background-color: #c8c2e9" class="page-section" id="about">
+    <section style="background-color: #c8c2e9" class="page-section" id="timeline">
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Timeline</h2>
@@ -134,13 +133,13 @@
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/mine/HNG intern1.png" alt="" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            <h4>July 2014</h4>
+                            <h4>July 2020</h4>
                             <h4 class="subheading">Phase Two Expansion</h4>
                         </div>
                         <div class="timeline-body">
                             <p class="text-black">From StartNg we were Introduced to <b><a style="color: #120172" href="
                                 https://hngi7.hng.tech/">HNG</a></b> which was So Competitive and was Sponsored by Google, FlutterWave, Hotels.ng, PiggyVest and many more. I learnt About Many things especially Laravel Framework, Rest API and Android Studio.
-                                At HNG I got to connect with many Mentors and understood Tech World Very Well</p>
+                                At HNG I got to connect with many Mentors and understood Tech World Very Well, graduated and got my certificate as a Finalist</p>
                         </div>
                     </div>
                 </li>
@@ -226,6 +225,34 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i style="color: #6b54eb" class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/logos/pastecs.png" alt="Pastecs" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Pastecs</div>
+                            <div class="portfolio-caption-subheading text-muted">Online Learning Platform</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                    <div class="portfolio-item">
+                        <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
+                            <div class="portfolio-hover">
+                                <div class="portfolio-hover-content"><i style="color: #6b54eb" class="fas fa-plus fa-3x"></i></div>
+                            </div>
+                            <img class="img-fluid" src="assets/img/logos/Stripit.png" alt="Pastecs" />
+                        </a>
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">Strip It</div>
+                            <div class="portfolio-caption-subheading text-muted">Video Posting Site</div>
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -236,8 +263,8 @@
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Capabilities</h2>
                 <h3 class="section-subheading text-muted">Things I Can Do</h3>
-                <div class="texttypeloop" ><p class="section-subheading text-muted" >I <span class="typed-text"></span><span class="TypeCursor">&nbsp;</span></p></div>            
-                                
+                <div class="texttypeloop" ><p class="section-subheading text-muted" >I <span class="typed-text"></span><span class="TypeCursor">&nbsp;</span></p></div>
+
             </div>
             <br>
             <div class="row text-center">
@@ -281,7 +308,16 @@
                 <h2 class="section-heading text-uppercase">Contact Me</h2>
                 <h3 class="section-subheading text-muted">Hey! Let's talk about your next big idea.</h3>
             </div>
-            <form id="contactForm" action="processContacts.php" method="POST">
+            <?php
+              $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+            ?>
+            <form id="contactForm" action="https://formsubmit.co/pesova13@gmail.com" method="POST">
+              <!-- For auto response -->
+                    <input type="hidden" name="_autoresponse" value="Thank You For Contacting Pesova">
+
+                    <input type="hidden" name="_next" value="http://localhost:8080/Myportfolio?contact=sent">
+
+                    <input type="hidden" name="_captcha" value="false">
                 <div class="row align-items-stretch mb-5">
                     <div class="col-md-6">
                         <div class="form-group">
@@ -306,25 +342,7 @@
                 </div>
                 <div class="text-center">
 
-                <?php
-                    if (isset($_SESSION['MailSent'])) {
-                        echo '<script type="text/JavaScript"> 
-                            alert("Thank You For Contacting me");
-                        </script>' ; 
-                        session_unset();
-                        session_destroy();
-                    } else {
-                        if (isset($_SESSION['NotMailSent'])) {
-                            echo '<script type="text/JavaScript">  
-                        alert("Something went wrong, we didnt recieve your message"); 
-                        </script>' ;
-                        session_unset();
-                        session_destroy();
-                        }
-                        
-                    }
-                    
-                ?>
+
                     <div id="success"></div>
                     <button style="background-color: #4b34cc; border: none" class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
                 </div>
@@ -359,8 +377,8 @@
                                 <h2 class="text-uppercase"> SNG Project</h2>
                                 <p class="item-intro text-muted">Hospital Website(Still Under Development)</p>
                                 <img class="img-fluid d-block mx-auto" src="assets/img/logos/hospital-logo2.png" alt="" />
-                                <p>This is A Hospital Website I built with HTML, CSS and pure PHP.</p>
-                                <p>In This Site You can book Appointments with Doctors and Nurses and pay online. Doctors and Nurses can also sign in and see patients that booked them.</p>
+                                <p>This is A Personal Hospital Website I built with HTML, CSS and pure PHP.</p>
+                                <p>In This Site you can book Appointments with Doctors and Nurses and pay online. Doctors and Nurses can also sign in and see patients that booked them.</p>
                                 <ul class="list-inline">
                                     <li>Date: January 2020</li>
                                     <li>Client: Doctors and Patients</li>
@@ -479,17 +497,95 @@
         </div>
     </div>
 
+<!-- Pastecs -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here-->
+                                <h2 class="text-uppercase">Pastecs</h2>
+                                <p class="item-intro text-muted">Online Learning Platform</p>
+                                <img class="img-fluid d-block mx-auto" src="assets/img/logos/pastecs.png" alt="pastecs" />
+                                <p>Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world.
+                                </p>
+                                <ul class="list-inline">
+                                    <li>Date: October 2020</li>
+                                    <li>Client: Chuks (School Director)</li>
+                                    <li>Category: Learning Platform</li>
+                                </ul>
+                                <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times mr-1"></i>
+                                        Close Project
+                                    </button>
+
+                                <a class="btn btn-info" href="https://pastecsv2.herokuapp.com/">View Project</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stripit -->
+        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="assets/img/close-icon.svg" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Strip It</h2>
+                                    <p class="item-intro text-muted">Video Posting Site</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/logos/stripit.png" alt="StripIt" />
+                                    <p>Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a three level user role (user, performer, moderator, admin), where performers post videos and get tipped by users.
+                                    </p>
+                                    <ul class="list-inline">
+                                        <li>Date: March 2021</li>
+                                        <li>Client: Fibre User</li>
+                                        <li>Category: Video</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                            <i class="fas fa-times mr-1"></i>
+                                            Close Project
+                                        </button>
+
+                                    <a class="btn btn-info" href="https://stripit.herokuapp.com/">View Project</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     <!-- Bootstrap core JS-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Contact form JS-->
-     <script src="assets/mail/jqBootstrapValidation.js"></script> 
+     <script src="assets/mail/jqBootstrapValidation.js"></script>
      <!-- <script src="assets/mail/contact_me.js"></script>  -->
     <!-- Core theme JS-->
     <script src="js/script.js"></script>
     <script src="js/app.js"></script>
 </body>
+<?php
+
+    if (isset($_GET['contact'])) {
+      echo '<script type="text/JavaScript">
+          alert("Thank You For Contacting me");
+          location.href = "http://localhost:8080/Myportfolio";
+      </script>' ;
+    }
+
+?>
 
 </html>
