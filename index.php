@@ -543,7 +543,7 @@
                                     <!-- Project Details Go Here-->
                                     <h2 class="text-uppercase">Strip It</h2>
                                     <p class="item-intro text-muted">Video Posting Site</p>
-                                    <img class="img-fluid d-block mx-auto" src="assets/img/logos/stripit.png" alt="StripIt" />
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/logos/Stripit.png" alt="StripIt" />
                                     <p>Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a three level user role (user, performer, moderator, admin), where performers post videos and get tipped by users.
                                     </p>
                                     <ul class="list-inline">
