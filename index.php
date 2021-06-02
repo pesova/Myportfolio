@@ -584,6 +584,7 @@
           alert("Thank You For Contacting me");
           location.href = "http://localhost:8080/Myportfolio";
       </script>' ;
+      
     }
 
 ?>
