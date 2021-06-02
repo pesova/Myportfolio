@@ -315,7 +315,7 @@
               <!-- For auto response -->
                     <input type="hidden" name="_autoresponse" value="Thank You For Contacting Pesova">
 
-                    <input type="hidden" name="_next" value="http://localhost:8080/Myportfolio?contact=sent">
+                    <input type="hidden" name="_next" value="https://pesova-portfolio.herokuapp.com?contact=sent">
 
                     <input type="hidden" name="_captcha" value="false">
                 <div class="row align-items-stretch mb-5">
@@ -582,9 +582,9 @@
     if (isset($_GET['contact'])) {
       echo '<script type="text/JavaScript">
           alert("Thank You For Contacting me");
-          location.href = "http://localhost:8080/Myportfolio";
+          location.href = "https://pesova-portfolio.herokuapp.com/";
       </script>' ;
-      
+
     }
 
 ?>
