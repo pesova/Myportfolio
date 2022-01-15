@@ -59,22 +59,21 @@
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
 
-function newFunction() {
-    const newLocal = new Typed('#typed', {
-        strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
-        loop: true,
-        typeSpeed: 65,
-        backSpeed: 65,
-        cursorChar: "|"
-    });
+// function newFunction() {
+//     const newLocal = new Typed('#typed', {
+//         strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
+//         loop: true,
+//         typeSpeed: 65,
+//         backSpeed: 65,
+//         cursorChar: "|"
+//     });
 
-    var typed = newLocal;
-}
+// }
 
-var typed2 = new Typed('#typed', {
-    strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
-    typeSpeed: 0,
-    backSpeed: 0,
-    fadeOut: true,
-    loop: true
-});
+// var typed2 = new Typed('#typed', {
+//     strings: ['Some <i>strings</i> with', 'Some <strong>HTML</strong>', 'Chars &times; &copy;'],
+//     typeSpeed: 0,
+//     backSpeed: 0,
+//     fadeOut: true,
+//     loop: true
+// });
