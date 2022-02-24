@@ -77,7 +77,14 @@ let Projects = [
     {
         name: "Pastecs",
         description: "Online Learning Platform",
-        long_description: "Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world.",
+        long_description: `Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world. Just like udemy, it tracks students progress and gives them access to the courses they have purchased. 
+        <br/>  <b>Login details</b> <br/>  Email: <b>pesova13@gmail.com</b>, Password <b>pesotech</b>, Role: <b>student</b>. 
+        <br/> Email: <b>pesotech@instructor.com</b>, Password <b>password</b>, Role: <b>instructor</b>. <p>(contact me for admin details)</p>
+        <pre>card_number: 5531886652142950,
+        cvv: 564,
+        expiry_date: 09/32,
+        pin: 3310,
+        otp: 12345 </pre>`,
         date: "October 2020",
         client: "Chuks (School Director)",
         category: "Learning Platform",
@@ -97,12 +104,28 @@ let Projects = [
     {
         name: "Strip It",
         description: "Video Posting Site",
-        long_description: "Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a three level user role (user, performer, moderator, admin), where performers post videos and get tipped by users, and recieve there payment through stripe or paypal.",
+        long_description: `Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a four level user role (user, performer, moderator, admin), where performers post videos and get tipped by users, and recieve there payment through stripe or paypal and also get different badges according to tips. Moderators and admin has different access to manage the hole platform.
+        <br/>  <b>Login details</b> <br/>  Username: <b>pesova</b>, Password <b>password</b>, Role: <b>user</b>. 
+        <br/> Username: <b>performer</b>, Password <b>password</b>, Role: <b>performer</b>. <p>(contact me for admin or moderator details)</p>
+        <pre>card_number: 5555555555554444,
+        cvv: 564,
+        expiry_date: 09/32,
+        postal code: 12345 </pre>`,
         date: "March 2021",
         client: "Fibre User",
         category: "Video Portal",
         image: "Stripit.png",
         link: "https://stripit.herokuapp.com/"
+    },
+    {
+        name: "Yandel API",
+        description: "crypto trading api",
+        long_description: "This API was built by me and another developer for a client that has a crypto trading app, where users can trade in crypto currencies and coupons. The API is built using the laravel framework and the paystack payment gateway and documented with postman",
+        date: "July 2021",
+        client: "Yandel CEO",
+        category: "Crypto trading",
+        image: "yandel.png",
+        link: "https://documenter.getpostman.com/view/11742809/UVkjvdNR"
     },
     {
         name: "Peso Tech",
@@ -114,16 +137,6 @@ let Projects = [
         category: "Programmers & Ethical Hackers blog",
         image: "PCbots.jpg",
         link: "https://pesova.github.io/PesoTech/"
-    },
-    {
-        name: "SNG Project",
-        description: "Basic Hospital Website ",
-        long_description: "This is A Personal Hospital Website I built with HTML, CSS and pure PHP. In This Site you can book Appointments with Doctors and Nurses and pay online. Doctors and Nurses can also sign in and see patients that booked them.",
-        date: "January 2020",
-        client: "Doctors and Patients",
-        category: "Hospital Web",
-        image: "hospital-logo2.png",
-        link: "https://pesova.000webhostapp.com/"
     },
     {
         name: "Quiz",
@@ -162,7 +175,7 @@ function projectModal(element){
     console.log(link, image);
     $("#project_name").text(name);
     $("#project_description").text(description);
-    $("#project_long_description").text(long_description);
+    $("#project_long_description").html(long_description);
     $("#project_date").text(`Date: ${date}`);
     $("#project_client").text(`CLient: ${client}`);
     $("#project_category").text(`Category: ${category}`);

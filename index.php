@@ -269,7 +269,7 @@
 
 
                     <div id="success"></div>
-                    <button style="background-color: #4b34cc; border: none" class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                    <button style="background-color: #4b34cc; border: none" class="btn btn-info btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
                 </div>
             </form>
         </div>
@@ -299,21 +299,21 @@
                         <div class="col-lg-8">
                             <div class="modal-body">
                                 <!-- Project Details Go Here-->
-                                <h2 class="text-uppercase" id="project_name"> SNG Project</h2>
-                                <p class="item-intro text-muted" id="project_description">Hospital Website(Still Under Development)</p>
+                                <h2 class="text-uppercase" id="project_name"> Project Name</h2>
+                                <p class="item-intro text-muted" id="project_description">Project Description</p>
                                 <img class="img-fluid d-block mx-auto" id="project_image" src="assets/img/logos/hospital-logo2.png" alt="" />
-                                <p id="project_long_description">This is A Personal Hospital Website I built with HT</p>
+                                <p id="project_long_description">project long description</p>
                                 <ul class="list-inline">
-                                    <li id="project_date">Date: January 2020</li>
-                                    <li id="project_client">Client: Doctors and Patients</li>
-                                    <li id="project_category">Category: Hospital</li>
+                                    <li id="project_date">Date: Date</li>
+                                    <li id="project_client">Client: Project client</li>
+                                    <li id="project_category">Category: Project Category</li>
                                 </ul>
-                                <button class="btn btn-danger" data-dismiss="modal" type="button">
+                                <button class="btn btn-secondary" data-dismiss="modal" type="button">
                                         <i class="fas fa-times mr-1"></i>
                                         Close Project
                                     </button>
 
-                                <a class="btn btn-info" id="project_link" href="https://pesova.000webhostapp.com/">View Project</a>
+                                <a class="btn btn-info" target="_blank" rel="noopener" id="project_link" href="https://pesova.000webhostapp.com/">View Project</a>
                             </div>
                         </div>
                     </div>
