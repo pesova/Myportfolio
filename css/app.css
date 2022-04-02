@@ -15,3 +15,50 @@
 .texttypeloop p span.TypeCursor.typing {
     animation: none;
 }
+
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+}
+
+.svg-inline--fa.fa-stack-2x {
+    height: 2em;
+    width: 2.5em;
+}
+
+.fa-stack-1x, .fa-stack-2x {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    position: relative;
+    width: 2.5em;
+}
+
+.fa-4x {
+    font-size: 3em;
+}
+
+.fa-inverse {
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .fa-4x {
+        font-size: 4em;
+    }
+}

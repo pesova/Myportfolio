@@ -46,7 +46,7 @@ function projectTemplate(data){
 
         projects += `<div class="col-lg-4 col-sm-6 mb-4">
                         <div class="portfolio-item" >
-                            <a class="portfolio-link" data-toggle="modal" href="javascript:void(0);" onclick="projectModal(this)" 
+                            <div class="portfolio-link" data-toggle="modal" onclick="projectModal(this)" 
                                 data-name="${project.name}"
                                 data-description="${project.description}" data-long_description="${project.long_description}"
                                 data-date="${project.date}"
@@ -58,8 +58,8 @@ function projectTemplate(data){
                                 <div class="portfolio-hover">
                                     <div class="portfolio-hover-content"><i style="color: #6b54eb" class="fas fa-plus fa-3x"></i></div>
                                 </div>
-                                <img class="img-fluid" src="assets/img/logos/${project.image}" alt="${project.name}" />
-                            </a>
+                                <img width="640" height="360" class="img-fluid" src="assets/img/logos/${project.image}.webp" alt="${project.name}" srcset="assets/img/logos/${project.image}-small.webp 480w, assets/img/logos/${project.image}.webp 1080w" sizes="50vw" />
+                            </div>
                             <div class="portfolio-caption">
                                 <div class="portfolio-caption-heading">${project.name}</div>
                                 <div class="portfolio-caption-subheading text-muted">${project.description}</div>
@@ -88,7 +88,7 @@ let Projects = [
         date: "October 2020",
         client: "Chuks (School Director)",
         category: "Learning Platform",
-        image: "pastecs.png",
+        image: "pastecs",
         link: "https://pastecsv2.herokuapp.com/"
     },
     {
@@ -98,7 +98,7 @@ let Projects = [
         date: "June 2020",
         client: "Business Men And Women",
         category: "Business Web",
-        image: "mycustomer.png",
+        image: "mycustomer",
         link: "https://customerpay.me/"
     },
     {
@@ -114,7 +114,7 @@ let Projects = [
         date: "March 2021",
         client: "Fibre User",
         category: "Video Portal",
-        image: "Stripit.png",
+        image: "Stripit",
         link: "https://stripit.herokuapp.com/"
     },
     {
@@ -124,7 +124,7 @@ let Projects = [
         date: "July 2021",
         client: "Yandel CEO",
         category: "Crypto trading",
-        image: "yandel.png",
+        image: "yandel",
         link: "https://documenter.getpostman.com/view/11742809/UVkjvdNR"
     },
     {
@@ -135,7 +135,7 @@ let Projects = [
         date: "2019",
         client: "Personal",
         category: "Programmers & Ethical Hackers blog",
-        image: "PCbots.jpg",
+        image: "PCbots",
         link: "https://pesova.github.io/PesoTech/"
     },
     {
@@ -145,7 +145,7 @@ let Projects = [
         date: "March 2020",
         client: "Personal",
         category: "Quiz Game",
-        image: "quiz.png",
+        image: "quiz",
         link: "https://pesova.github.io/quizGame/"
     },
 ];
@@ -180,8 +180,9 @@ function projectModal(element){
     $("#project_client").text(`CLient: ${client}`);
     $("#project_category").text(`Category: ${category}`);
     $("#project_link").attr("href", link);
-    $('#project_image').attr("src", `assets/img/logos/${image}`);
+    $('#project_image').attr("src", `assets/img/logos/${image}.webp`);
 
     $('#projectsModal').modal('toggle');
 }
+
 
