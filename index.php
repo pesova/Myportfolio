@@ -43,7 +43,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) &&  ($time - $_SESSION['LAST_ACTIVITY']) >
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">Pesova vvv</a>
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Pesova</a>
 
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
