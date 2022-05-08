@@ -63,7 +63,7 @@ if (isset($_SESSION['LAST_ACTIVITY']) &&  ($time - $_SESSION['LAST_ACTIVITY']) >
         </div>
     </header>
 
-    <div class="modal fade" id="accessCodeModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
+    <div class="modal access fade" id="accessCodeModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content">
                 <div class="container">
@@ -117,8 +117,13 @@ $dotenv->load();
             AOS.init({
                 once: true,
             });
-    
-            $("#accessCodeModal").modal("show");
+
+            $( document ).ready(function() {
+                setTimeout(function() { 
+                    $("#accessCodeModal").modal("show");
+                }, 1000);
+                
+            });
     
             const access_code = ' . $access_code . ';'.'
 

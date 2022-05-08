@@ -316,7 +316,6 @@ textarea {
     -webkit-appearance: none;
 }
 
-
 [hidden] {
     display: none !important;
 }
@@ -464,13 +463,11 @@ mark,
     color: #6c757d;
 }
 
-
 pre {
     display: block;
     font-size: 87.5%;
     color: #212529;
 }
-
 
 .pre-scrollable {
     max-height: 340px;
@@ -1843,8 +1840,6 @@ fieldset:disabled a.btn {
     pointer-events: none;
 }
 
-
-
 .btn-secondary {
     color: #fff;
     background-color: #6c757d;
@@ -2022,8 +2017,6 @@ input[type=button].btn-block {
         transition: none;
     }
 }
-
-
 
 .custom-file {
     position: relative;
@@ -2717,6 +2710,11 @@ input[type=button].btn-block {
 .modal-open .modal {
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.modal-open .modal.access {
+    overflow-x: hidden;
+    overflow-y: hidden !important;
 }
 
 .modal {
@@ -3419,7 +3417,6 @@ button.bg-dark:focus {
 }
 
 @media (min-width: 768px) {
-
     .justify-content-md-start {
         justify-content: flex-start !important;
     }
@@ -6270,7 +6267,6 @@ header.masthead .masthead-heading {
     }
 }
 
-
 #Projects .portfolio-item {
     max-width: 25rem;
     margin-left: auto;
@@ -6301,7 +6297,7 @@ header.masthead .masthead-heading {
 }
 
 #Projects .portfolio-item .portfolio-link:hover .portfolio-hover {
-    opacity: 1;  
+    opacity: 1;
 }
 
 #Projects .portfolio-item .portfolio-caption {
@@ -6362,17 +6358,17 @@ header.masthead .masthead-heading {
     right: 1.5rem;
     font-size: 2rem;
     background: none;
-	color: inherit;
-	border: none;
+    color: inherit;
+    border: none;
 }
 
-.portfolio-modal .close-modal:hover, .portfolio-modal .close-modal:focus {
+.portfolio-modal .close-modal:hover,
+.portfolio-modal .close-modal:focus {
     outline: none;
     background: none;
     transform: scale(1.5);
     transition: all ease-in-out 0.25s;
 }
-
 
 .timeline {
     position: relative;
