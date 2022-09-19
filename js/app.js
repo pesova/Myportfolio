@@ -75,6 +75,16 @@ function projectTemplate(data){
 
 let Projects = [
     {
+        name: "Pesocrypt",
+        description: "My Web3 Site",
+        long_description: `This Project was completed from a learning aspect of web3 smart contracts with React and solidity. You can transfer crypto in different networks from one address to the other and get your transactions directly from the blockchain`,
+        date: "September 2022",
+        client: "Web3 Dev",
+        category: "Web3 Smart contract",
+        image: "pesocrypt",
+        link: "https://project.pesovatech.com"
+    },
+    {
         name: "Pastecs",
         description: "Online Learning Platform",
         long_description: `Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world. Just like udemy, it tracks students progress and gives them access to the courses they have purchased. 
@@ -102,9 +112,20 @@ let Projects = [
         link: "https://customerpay.me/"
     },
     {
+        name: "Abims",
+        description: "Inhouse Company Invoice System",
+        long_description: `This Project was built in collaboration with phase3 as an inhouse invoice system only used by abims staffs to manage and control there everyday invoice system. It has different staff levels and actions depending on staff role. I implemented the dashboard, staff, customers, and contributed in some part of the invoice system using laravel. NB: Only used by abims, I hosted a little part on my server.
+        <br/>  <b>Login details</b> <br/>  Email: <b>dev@pesovatech.com</b>, Password <b>password</b>, Role: <b>finance-admin</b>. `,
+        date: "April 2022",
+        client: "Abims",
+        category: "Invoice Web",
+        image: "abims",
+        link: "https://abims.pesovatech.com/"
+    },
+    {
         name: "Strip It",
         description: "Video Posting Site",
-        long_description: `Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a four level user role (user, performer, moderator, admin), where performers post videos and get tipped by users, and recieve there payment through stripe or paypal and also get different badges according to tips. Moderators and admin has different access to manage the hole platform.
+        long_description: `Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a four level user role (user, performer, moderator, admin), where performers post videos and get tipped by users, and receive there payment through stripe or paypal and also get different badges according to tips. Moderators and admin has different access to manage the hole platform.
         <br/>  <b>Login details</b> <br/>  Username: <b>pesova</b>, Password <b>password</b>, Role: <b>user</b>. 
         <br/> Username: <b>performer</b>, Password <b>password</b>, Role: <b>performer</b>. <p>(contact me for admin or moderator details)</p>
         <pre>card_number: 5555555555554444,
@@ -130,7 +151,7 @@ let Projects = [
     {
         name: "Peso Tech",
         description: "Ethical Hacking Site",
-        long_description: `I created this blog site myself, where i posted many ethical hacking tutorials, and usefull hints for Programmers, Script handlers and Hackers. Take Note it is an educational site, and every tips used is at users risk.
+        long_description: `I created this blog site myself, where i posted many ethical hacking tutorials, and useful hints for Programmers, Script handlers and Hackers. Take Note it is an educational site, and every tips used is at users risk.
         NB: I built this when i was learning JavaScript.`,
         date: "2019",
         client: "Personal",
@@ -172,7 +193,6 @@ function projectModal(element){
             image,
             link} = element.dataset;
 
-    console.log(link, image);
     $("#project_name").text(name);
     $("#project_description").text(description);
     $("#project_long_description").html(long_description);

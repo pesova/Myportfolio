@@ -456,40 +456,6 @@ $dotenv->load();
         </div>
     </div>
 
-    <div class="modal fade" id="accessCodeModal" tabindex="-1" data-backdrop="static" data-keyboard="false" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
-                <div class="container">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-12">
-                            <div class="modal-body">
-                                <!-- Project Details Go Here-->
-                                <h4 class="text-uppercase"> Please Input Access Code </h4>
-                                <small class="item-intro text-muted">Security measure to ensure only those I want can access my portfolio and to reduce spam &#128578; </small>
-                                <div class="form-group mb-md-0 access_code ">
-                                    <span>
-                                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                        width="24" height="24"
-                                        viewBox="0 0 24 24"
-                                        class="passcode_icon"
-                                        >    <path d="M 12 1 C 8.6761905 1 6 3.6761905 6 7 L 6 8 C 4.9069372 8 4 8.9069372 4 10 L 4 20 C 4 21.093063 4.9069372 22 6 22 L 18 22 C 19.093063 22 20 21.093063 20 20 L 20 10 C 20 8.9069372 19.093063 8 18 8 L 18 7 C 18 3.6761905 15.32381 1 12 1 z M 12 3 C 14.27619 3 16 4.7238095 16 7 L 16 8 L 8 8 L 8 7 C 8 4.7238095 9.7238095 3 12 3 z M 6 10 L 18 10 L 18 20 L 6 20 L 6 10 z M 12 13 C 10.9 13 10 13.9 10 15 C 10 16.1 10.9 17 12 17 C 13.1 17 14 16.1 14 15 C 14 13.9 13.1 13 12 13 z"></path>
-                                        </svg>
-                                    </span>
-                                    
-
-                                    <input class="form-control "name="code" type="password" placeholder="Access Code" required="required" onkeyup="validateCode(this)"/>
-                                   
-                                    <p class="help-block text-danger"></p>
-                                </div>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <!-- Bootstrap core JS-->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
