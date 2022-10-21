@@ -1,14 +1,13 @@
-# Welcome to my portfolio documentation 
+# Welcome to my portfolio
 
 ```bash
-#!/bin/bash
  composer install
 ```
 
-Hosted [Here](https://pesovatech.com/)
+View hosted site [Here](https://pesovatech.com/)
 
 For the purpose of spam and some private projects, I implemented a **security system** to it
-You will have to request for the password to view.f
+You will have to request for the password to view.
 
 ## Quick Start
 
