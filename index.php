@@ -125,8 +125,6 @@ $dotenv->load();
                 
             });
     
-            const access_code = ' . $access_code . ';'.'
-
             const padlock = document.getElementById("passcode_icon");
     
             // removes this script tags on load
@@ -135,9 +133,9 @@ $dotenv->load();
                 jsArray.parentNode.removeChild(jsArray);
             }
             function validateCode(e){
-                if (e.value == access_code) {
+                if (e.value == ' . $access_code . ') {
                     padlock.style.fill = "green";
-                    $("#div_session_write").load("session_write.php?access_code=" + access_code);
+                    $("#div_session_write").load("session_write.php?access_code=" + ' . $access_code . ');
                     window.location.reload();
                     $("#accessCodeModal").modal("hide");
                     
