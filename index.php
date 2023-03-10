@@ -35,7 +35,9 @@ if (isset($_SESSION['LAST_ACTIVITY']) &&  ($time - $_SESSION['LAST_ACTIVITY']) >
     <link href="css/app.css" rel="stylesheet"  />
     <link rel="preload" as="image" href="assets/img/header-bg.webp" />
 
-    <link rel="preload" as="script" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" />
+    <!-- <script async src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+
+
 
 </head>
 
@@ -315,7 +317,7 @@ $dotenv->load();
                         <svg class="svg-inline--fa fa-laptop fa-w-20 fa-stack-1x fa-inverse" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="laptop" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg=""><path fill="currentColor" d="M624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg>
                     </span>
                     <h4 class="my-3" data-aos="fade-down-right">Web Development</h4>
-                    <p class="text-muted" data-aos="fade-down-right">I build Cool Responsive websites using necessary technologies and the right data structures and algorithms necessary to scale the application as the need arises.</p>
+                    <p class="text-muted" data-aos="fade-down-right">I build Cool Responsive websites using necessary technologies such as React, Vue and the right data structures and algorithms necessary to scale the application as the need arises.</p>
                 </div>
                 <div class="col-md-4" >
                     <span class="fa-stack fa-4x" data-aos="zoom-out-down">
@@ -325,8 +327,14 @@ $dotenv->load();
                     </span>
 
                     <h4 class="my-3" data-aos="zoom-out-down">Backend Developer</h4>
-                    <p class="text-muted" data-aos="zoom-out-down">I build sites with PhP and also using Laravel Framework both creating and consuming APIs, I also have knowledge on NodeJs and Devops. And am a Fast Learner that has experienced Learning and working under Pressure at the same time
+                    <p class="text-muted" data-aos="zoom-out-down">
+                        I specialize in building scalable web applications using a variety of technologies, including:
+                        PHP (with Laravel framework)
+                        Node.js (with AdonisJs and Express frameworks)
+                        Typescript
+                        Devops (Docker, Kubernetes, etc.)
                     </p>
+
                 </div>
                 <div class="col-md-4" >
                     <span class="fa-stack fa-4x" data-aos="zoom-out-down">
@@ -456,7 +464,11 @@ $dotenv->load();
 
 
     <!-- Bootstrap core JS-->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+     
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core theme JS-->

@@ -90,26 +90,16 @@ let Projects = [
         long_description: `Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world. Just like udemy, it tracks students progress and gives them access to the courses they have purchased. 
         <br/>  <b>Login details</b> <br/>  Email: <b>pesova13@gmail.com</b>, Password <b>pesotech</b>, Role: <b>student</b>. 
         <br/> Email: <b>pesotech@instructor.com</b>, Password <b>password</b>, Role: <b>instructor</b>. <p>(contact me for admin details)</p>
-        <pre>card_number: 5531886652142950,
-        cvv: 564,
-        expiry_date: 09/32,
+        <pre>card_number: 5399838383838381,
+        cvv: 470,
+        expiry_date: 10/31,
         pin: 3310,
         otp: 12345 </pre>`,
         date: "October 2020",
         client: "Chuks (School Director)",
         category: "Learning Platform",
         image: "pastecs",
-        link: "https://pastecsv2.herokuapp.com/"
-    },
-    {
-        name: "HNG Project",
-        description: "My Customer Web App",
-        long_description: `This Project was built As team Project In HNG. MyCustomer is like a ledger book where you keep records of your business. As A user, You create stores and add assistants to each of your stores if you want. Mycustomer app can also help users record the transactions that occur in each store It can be credit or debit. NB: I Contributed Under Store Management.`,
-        date: "June 2020",
-        client: "Business Men And Women",
-        category: "Business Web",
-        image: "mycustomer",
-        link: "https://customerpay.me/"
+        link: "https://pastecs.pesovatech.com/",
     },
     {
         name: "Abims",
@@ -121,6 +111,16 @@ let Projects = [
         category: "Invoice Web",
         image: "abims",
         link: "https://abims.pesovatech.com/"
+    },
+    {
+        name: "Usecoins",
+        description: "Global Payment Platform",
+        long_description: `Worked with a team in developing this payment gateway, that provides a cryptocurrency payment trail so merchants and their customers can trade. I worked both on the frontend and backend using React, Node.js, Typescript and Solidity.`,
+        date: "October 2022",
+        client: "Egom Technologies",
+        category: "Payment gateway",
+        image: "usecoins",
+        link: "https://usecoins.io/",
     },
     {
         name: "Strip It",
@@ -136,7 +136,7 @@ let Projects = [
         client: "Fibre User",
         category: "Video Portal",
         image: "Stripit",
-        link: "https://stripit.herokuapp.com/"
+        link: "https://stripit.pesovatech.com/"
     },
     {
         name: "Yandel API",
