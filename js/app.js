@@ -1,7 +1,13 @@
 const TypingText = document.querySelector(".typed-text");
 const AutoTyping = document.querySelector(".TypeCursor");
 
-const textArray = ["Build.", "Create.", "Design.", "Have Passion for coding.", "Love Team work."];
+const textArray = [
+  "build scalable systems.",
+  "design clean APIs.",
+  "ship real products.",
+  "love backend engineering.",
+  "enjoy teamwork."
+];
 const typingDelay = 100;
 const erasingDelay = 50;
 const newTextDelay = 1000;
@@ -157,7 +163,7 @@ let Projects = [
         client: "Personal",
         category: "Programmers & Ethical Hackers blog",
         image: "PCbots",
-        link: "https://pesova.github.io/PesoTech/"
+        link: "https://pesova.github.io/PesoTech/Tech.html"
     },
     {
         name: "Quiz",

@@ -64,22 +64,126 @@ svg:not(:root).svg-inline--fa {
     }
 }
 
-.access_code {
-    margin-top: 10px;
+/* ===== ACCESS MODAL STYLES ===== */
+.modal.access.fade.show {
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-.access_code span {
-    position: absolute;
-    padding: 5px;
-    min-width: 40px;
+.modal.access .modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
 }
 
-.access_code span svg {
-    fill: rgb(133 142 149);
-    stroke-width: 1px;
+.modal.access .modal-body {
+    padding: 2.5rem;
 }
 
-.access_code .form-control {
+/* Code input styling */
+.code-input {
+    font-size: 1.8rem !important;
+    letter-spacing: 0.5em !important;
+    padding-left: 0.5em !important;
+    height: 60px !important;
+    border-left: 0 !important;
     text-align: center;
-    padding: 10px !important;
+}
+
+.code-input:focus {
+    border-color: #6b54eb !important;
+    box-shadow: 0 0 0 0.2rem rgba(107, 84, 235, 0.25) !important;
+}
+
+.code-input.is-valid {
+    border-color: #28a745 !important;
+    background-image: none !important;
+}
+
+.code-input.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+}
+
+/* Input group styling */
+.modal.access .input-group-text {
+    background: transparent !important;
+    border-right: 0 !important;
+    border-color: #dee2e6;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #6b54eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    display: none;
+}
+
+/* Status icons */
+.status-icon span {
+    font-size: 1.5rem;
+    display: none;
+}
+
+#successIcon {
+    color: #28a745;
+}
+
+#errorIcon {
+    color: #dc3545;
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal.access.fade.show .modal-dialog {
+    animation: modalSlideIn 0.5s ease-out;
+}
+
+/* Padlock inside input */
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.code-input-with-icon {
+    height: 70px;
+    font-size: 2rem !important;
+    letter-spacing: 0.8em !important;
+    text-align: center !important;
+    padding-right: 0.8em !important;
+    padding-left: 60px !important;
+    border-radius: 10px !important;
+}
+
+.code-input-with-icon::placeholder {
+    color: #adb5bd;
+    letter-spacing: 0.8em;
+    text-indent: 0.4em;
 }
