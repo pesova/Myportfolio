@@ -138,8 +138,7 @@
                 const successIcon = $("#successIcon");
                 const errorIcon = $("#errorIcon");
                 const statusMessage = $("#statusMessage");
-                const passcodeIcon = $("#passcode_icon");
-
+                const passcodeIcon = $("#passcode_icon");                
                 setTimeout(function() {
                     $("#accessCodeModal").modal("show");
                     $('#accessCodeModal').on('shown.bs.modal', function() {
@@ -259,18 +258,24 @@
                 <div id="AboutMe">
 
                     <p style="color: #e1e1ee" data-aos="zoom-in-up">
-                        <b>Hi, I'm Osueke Pesova, A Full Stack Developer from Nigeria. I have been developing web applications for the last 4 years. I'm super passionate about development and how the web works in general.</b>
+                        <b>
+                            Hi, I'm Osueke Pesova, a Full Stack Developer from Nigeria with over 4 years of experience building scalable, secure, and user-focused web applications. I specialize in backend engineering, API design, and system architecture, with a strong passion for how technology solves real-world problems.
+                        </b>
                     </p>
 
                     <p style="color: #cdcdd8" data-aos="zoom-in">
-                        <b> My childhood curiosity led to my educational focus in engineering and technology, and over the years I have gained experience in building responsive web applications.
-                            My programming experience has been both challenging and fun working on programming projects with the added thrill of being able to communicate directly with my computer.</b>
+                        <b>
+                            My curiosity for technology began early and evolved into a focused journey in software engineering. Over the years, I've worked extensively with TypeScript, Node.js, Express, AdonisJS, MongoDB, Redis, and RESTful API development, building systems that handle authentication, financial transactions, and data-driven workflows. I enjoy tackling complex challenges, optimizing performance, and writing clean, maintainable code.
+                        </b>
                     </p>
 
                     <p style="color: #acacbd" data-aos="zoom-in-up">
-                        <b>I Am Very Good at Cordinating Teams and love to share what I know through teaching. I specialize in helping others learn how to code and I believe anything can be overcome through commitment and hardwork. I'm always up for new things. From a technical standpoint, I spend most of my time working with HTML5, CSS3, JavaScript and PhP. When not creating websites, I like to play video games.</b>
+                        <b>
+                            Beyond coding, I'm skilled at collaborating with teams, mentoring others, and breaking down technical concepts in ways that make them easier to understand. I value continuous learning and adaptability, always exploring better ways to improve system design and developer experience. When I'm not building applications, I enjoy gaming and staying updated with emerging trends in technology.
+                        </b>
                     </p>
                     <br>
+
                 </div>
 
             </div>
@@ -360,6 +365,22 @@
                         </div>
                     </div>
                 </li>
+                <li>
+                    <div class="timeline-image" data-aos="zoom-out-right">
+                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/prof_mine.png" alt="" />
+                    </div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 data-aos="fade-down-right">2022-2025</h4>
+                            <h4 class="subheading" data-aos="zoom-out-right">Professional Growth & Backend Specialization</h4>
+                        </div>
+                        <div class="timeline-body" data-aos="zoom-out-right">
+                            <p class="text-black">
+                                During this period, I focused heavily on backend engineering, building scalable APIs and real-world financial systems using TypeScript, Node.js, AdonisJS, Express, MongoDB, and Redis. I worked on Open Banking integrations, payment workflows, performance optimization and collaborating with teams to deliver reliable software solutions.
+                            </p>
+                        </div>
+                    </div>
+                </li>
                 <li class="timeline-inverted">
                     <div style="background-color: #1F1558" class="timeline-image" data-aos="fade-down-right">
                         <h4>
@@ -420,7 +441,9 @@
                         </svg>
                     </span>
                     <h4 class="my-3" data-aos="fade-down-right">Web Development</h4>
-                    <p class="text-muted" data-aos="fade-down-right">I build Cool Responsive websites using necessary technologies such as React, Vue and the right data structures and algorithms necessary to scale the application as the need arises.</p>
+                    <p class="text-muted" data-aos="fade-down-right">
+                        I build responsive and user-friendly web applications using modern frontend technologies such as React and Vue. I focus on performance, accessibility, and scalable component architecture, ensuring applications remain maintainable as they grow. I also apply strong problem-solving skills and data-driven thinking to create efficient user experiences.
+                    </p>
                 </div>
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x" data-aos="zoom-out-down">
@@ -433,13 +456,9 @@
                         </svg>
                     </span>
 
-                    <h4 class="my-3" data-aos="zoom-out-down">Backend Developer</h4>
+                    <h4 class="my-3" data-aos="zoom-out-down">Backend Development</h4>
                     <p class="text-muted" data-aos="zoom-out-down">
-                        I specialize in building scalable web applications using a variety of technologies, including:
-                        PHP (with Laravel framework)
-                        Node.js (with AdonisJs and Express frameworks)
-                        Typescript
-                        Devops (Docker, Kubernetes, etc.)
+                        I specialize in designing and building secure, scalable backend systems using Node.js, AdonisJS, Express, and TypeScript. My experience includes REST API development, authentication systems, financial transaction flows, database design, and performance optimization. I am also familiar with PHP (Laravel), MongoDB, Redis, and DevOps practices such as containerization and deployment workflows.
                     </p>
 
                 </div>
@@ -453,8 +472,10 @@
                             <path fill="currentColor" d="M96 224c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm448 0c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm32 32h-64c-17.6 0-33.5 7.1-45.1 18.6 40.3 22.1 68.9 62 75.1 109.4h66c17.7 0 32-14.3 32-32v-32c0-35.3-28.7-64-64-64zm-256 0c61.9 0 112-50.1 112-112S381.9 32 320 32 208 82.1 208 144s50.1 112 112 112zm76.8 32h-8.3c-20.8 10-43.9 16-68.5 16s-47.6-6-68.5-16h-8.3C179.6 288 128 339.6 128 403.2V432c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48v-28.8c0-63.6-51.6-115.2-115.2-115.2zm-223.7-13.4C161.5 263.1 145.6 256 128 256H64c-35.3 0-64 28.7-64 64v32c0 17.7 14.3 32 32 32h65.9c6.3-47.4 34.9-87.3 75.2-109.4z"></path>
                         </svg>
                     </span>
-                    <h4 class="my-3" data-aos="zoom-out-down">Team Work</h4>
-                    <p class="text-muted" data-aos="zoom-out-down">I have a good sense of communication on Leading a Team to achieve a goal. I have lead many teams at my internship days where I managed Pull Requests on github.</p>
+                    <h4 class="my-3" data-aos="zoom-out-down">Collaboration & Teamwork</h4>
+                    <p class="text-muted" data-aos="zoom-out-down">
+                        I thrive in collaborative environments and value clear communication, accountability, and shared ownership of projects. I have experience coordinating teams, reviewing pull requests, maintaining coding standards, and supporting peers to ensure high-quality deliverables. I enjoy mentoring others and contributing to a positive engineering culture.
+                    </p>
                 </div>
             </div>
         </div>

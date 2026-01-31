@@ -187,3 +187,40 @@ svg:not(:root).svg-inline--fa {
     letter-spacing: 0.8em;
     text-indent: 0.4em;
 }
+
+/* Project description */
+/* Tech tags styling for project modals */
+.tech-tags {
+    margin: 10px 0;
+}
+
+.tech-tags .badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    margin-bottom: 5px;
+    background-color: #6b54eb;
+    color: white;
+    font-weight: 500;
+}
+
+/* Modal content styling */
+#project_long_description h6 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+#project_long_description ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#project_long_description ul li {
+    margin-bottom: 5px;
+}
+
+#project_long_description p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
