@@ -98,6 +98,53 @@ function encodeHTML(html) {
 
 let Projects = [
   {
+    name: "LiquidRamp Infrastructure",
+    description:
+      "Core API Development for Non-Custodial Money Movement Platform",
+    long_description: `
+    <h6><strong>Project Overview:</strong></h6>
+    <p>Developed core API infrastructure for LiquidRamp, a non-custodial platform that powers global money movement, stablecoin conversions, and programmable liquidity. The platform enables users to onboard as crypto providers or consumers, operating through secure, self-hosted nodes that maintain private keys separately from the platform.</p>
+    
+    <h6><strong>My Key Contributions:</strong></h6>
+    <ul>
+        <li><strong>Core Trading Infrastructure</strong> - Implemented buy/sell rate management and multiple rate systems for global currency conversions</li>
+        <li><strong>AWS Storage Integration</strong> - Built secure file storage and preview system for platform assets and documentation</li>
+        <li><strong>Webhook & Notification System</strong> - Developed comprehensive webhook infrastructure and email notification system for user alerts</li>
+        <li><strong>Node Integration</strong> - Created transfer and status implementation for secure communication with user-hosted nodes</li>
+        <li><strong>Security & Authentication</strong> - Implemented email notifications for login alerts and password reset confirmations</li>
+    </ul>
+    
+    <h6><strong>Technical Architecture:</strong></h6>
+    <ul>
+        <li>Built the API infrastructure that connects to user-hosted nodes containing private keys</li>
+        <li>Implemented non-custodial architecture where transactions are executed directly from user nodes</li>
+        <li>Created systems for seamless stablecoin-to-local-currency conversions across multiple regions</li>
+        <li>Developed programmable liquidity features for earnings and money movement</li>
+    </ul>
+    
+    <h6><strong>Tech Stack:</strong></h6>
+    <div class="tech-tags">
+        <span class="badge badge-primary mr-1">Typescript</span>
+        <span class="badge badge-primary mr-1">Mysql</span>
+        <span class="badge badge-primary mr-1">API Infrastructure</span>
+        <span class="badge badge-primary mr-1">Non-Custodial</span>
+        <span class="badge badge-primary mr-1">AWS Integration</span>
+        <span class="badge badge-primary mr-1">Webhooks</span>
+        <span class="badge badge-primary mr-1">Node.js</span>
+        <span class="badge badge-primary mr-1">FinTech Core</span>
+    </div>
+    
+    <h6><strong>Platform Impact:</strong></h6>
+    <p>Built foundational infrastructure that powers multiple platforms including <strong>Dexfiat Exchange</strong> and other financial applications requiring secure, non-custodial money movement capabilities.</p>
+
+    `,
+    date: "August 2025 - 2026",
+    client: "LiquidRamp",
+    category: "FinTech Core Infrastructure",
+    image: "liquidramp",
+    link: "https://liquidramp.com",
+  },
+  {
     name: "Fracxn Marketplace Lending API",
     description: "Backend API for a Digital Lending Marketplace",
     long_description: `
@@ -136,6 +183,43 @@ let Projects = [
     category: "FinTech API",
     image: "fracxn",
     link: "https://sandbox.marketplace.fracxn.com",
+  },
+  {
+    name: "Dexfiat Crypto Exchange",
+    description: "Full-Stack Development of a P2P Crypto Trading Platform",
+    long_description: `
+    <h6><strong>Project Overview:</strong></h6>
+    <p>Contributed to the full-stack development of a peer-to-peer (P2P) cryptocurrency exchange platform. The platform connects users directly to crypto providers, enabling them to buy and sell a wide range of digital assets (like USDT, USDC, DAI) using various fiat currencies including Nigerian Naira, US Dollar, and British Pound.</p>
+    
+    <h6><strong>My Key Contributions:</strong></h6>
+    <ul>
+        <li><strong>Database & Backend Logic</strong> - Designed and implemented data models and business logic with MySQL to handle user accounts, orders, and transactions securely.</li>
+        <li><strong>AI Chatbot Integration</strong> - Developed an AI-powered chatbot feature that allows users to execute platform actions through natural language commands.</li>
+        <li><strong>User Experience Features</strong> - Implemented functionalities for the chatbot and platform, including account creation, saving beneficiaries, and initiating buy/sell orders.</li>
+    </ul>
+    
+    <h6><strong>Technical Implementation:</strong></h6>
+    <ul>
+        <li>Engineered a scalable backend architecture to facilitate secure P2P matching and transactions.</li>
+        <li>Integrated with the LiquidRamp infrastructure to power the platform's liquidity and operations.</li>
+        <li>Focused on creating a seamless user experience for multi-currency crypto-to-fiat conversions.</li>
+    </ul>
+    
+    <h6><strong>Tech Stack:</strong></h6>
+    <div class="tech-tags">
+        <span class="badge badge-primary mr-1">TypeScript</span>
+        <span class="badge badge-primary mr-1">AdonisJS</span>
+        <span class="badge badge-primary mr-1">MySQL</span>
+        <span class="badge badge-primary mr-1">Backend API</span>
+        <span class="badge badge-primary mr-1">AI Chatbot</span>
+        <span class="badge badge-primary mr-1">FinTech/Crypto</span>
+    </div>
+    `,
+    date: "2024-2025",
+    client: "Dexfiat",
+    category: "FinTech / Crypto Exchange",
+    image: "dexfiat",
+    link: "https://dexfiat.exchange",
   },
   {
     name: "Carbon Credit Tokenization API",

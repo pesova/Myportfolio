@@ -6278,6 +6278,7 @@ header.masthead .masthead-heading {
     display: block;
     margin: 0 auto;
     text-align: center;
+    cursor: pointer;
 }
 
 #Projects .portfolio-item .portfolio-link .portfolio-hover {
@@ -6289,6 +6290,7 @@ header.masthead .masthead-heading {
     align-items: center;
     justify-content: center;
     opacity: 0;
+    cursor: pointer;
     transition: opacity ease-in-out 0.25s;
 }
 
@@ -6298,6 +6300,7 @@ header.masthead .masthead-heading {
 
 #Projects .portfolio-item .portfolio-link:hover .portfolio-hover {
     opacity: 1;
+    transform: translateY(0);
 }
 
 #Projects .portfolio-item .portfolio-caption {
