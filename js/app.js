@@ -480,6 +480,46 @@ $(document).ready(function () {
   let allProjects = projectTemplate(Projects);
 
   divProjects.innerHTML = allProjects;
+
+      $('#email').on('input', function() {
+        $('#replytoEmail').val($(this).val());
+    });
+    
+    // Form submission handler
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+        
+        const submitBtn = $('#sendMessageButton');
+        const originalText = submitBtn.html();
+        const formMessage = $('#formMessage');
+        
+        submitBtn.html('<i class="fas fa-spinner fa-spin"></i> Sending...').prop('disabled', true);
+        formMessage.hide().removeClass('alert-success alert-danger');
+        const formspreeUrl = 'https://formspree.io/f/mgozgjjj';
+        
+        $.ajax({
+            url: formspreeUrl,
+            method: 'POST',
+            data: $(this).serialize(),
+            dataType: 'json',
+            success: function(response) {
+                if (response.ok) {
+                    alert("Thank You For Contacting Me")
+                    $('#contactForm')[0].reset();
+                    $('#replytoEmail').val('');
+                } else {
+                    formMessage.addClass('alert-danger')
+                        .html('<i class="fas fa-exclamation-circle"></i> Failed to send message. Please try again.')
+                        .show();
+                }
+                submitBtn.html(originalText).prop('disabled', false);
+            },
+            error: function(xhr, status, error) {
+                submitBtn.html(originalText).prop('disabled', false);
+                alert("Please check your internet and retry")
+            }
+        });
+    });
 });
 
 function projectModal(element) {

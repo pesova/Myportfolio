@@ -43,57 +43,56 @@
         </div>
     </header>
 
-<?php
-session_start();
+    <?php
 
-// Handle sessions differently for Railway vs Local
-if (getenv('RAILWAY_ENVIRONMENT') || file_exists('/etc/railway')) {
-    session_save_path('/tmp');
-} else {
-    // Local development - use local sessions directory
-    if (!is_dir(__DIR__ . '/sessions')) {
-        mkdir(__DIR__ . '/sessions', 0700, true);
-    }
-    session_save_path(__DIR__ . '/sessions');
-}
-
-$duration = 30 * 60;
-$time = $_SERVER['REQUEST_TIME'];
-
-if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
-    session_unset();
-    session_destroy();
+    // Handle sessions differently for Railway vs Local
     session_start();
-} else {
-    $_SESSION['LAST_ACTIVITY'] = $time;
-}
+    // if (getenv('RAILWAY_ENVIRONMENT') || file_exists('/etc/railway')) {
+    //     session_save_path('/tmp');
+    // } else {
+    //     // Local development - use local sessions directory
+    //     if (!is_dir(__DIR__ . '/sessions')) {
+    //         mkdir(__DIR__ . '/sessions', 0700, true);
+    //     }
+    //     session_save_path(__DIR__ . '/sessions');
+    // }
 
-// Function to get access code safely
-function getAccessCode() {
-    // Check Railway environment variables first
-    if (getenv('RAILWAY_ENVIRONMENT') || getenv('RAILWAY_STATIC_URL')) {
-        return getenv('ACCESS_CODE') ?: '0000';
+    $duration = 30 * 60;
+    $time = $_SERVER['REQUEST_TIME'];
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
+        session_unset();
+        session_destroy();
+        session_start();
+    } else {
+        $_SESSION['LAST_ACTIVITY'] = $time;
     }
-    
-    // Check local .env file
-    if (file_exists(__DIR__ . '/.env') && file_exists(__DIR__ . '/vendor/autoload.php')) {
-        require_once __DIR__ . '/vendor/autoload.php';
-        try {
-            $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-            $dotenv->load();
-            return $_ENV['ACCESS_CODE'] ?? '0000';
-        } catch (Exception $e) {
-            return '0000';
+
+    // Function to get access code safely
+    function getAccessCode()
+    {
+        // Check Railway environment variables first
+        if (getenv('RAILWAY_ENVIRONMENT') || getenv('RAILWAY_STATIC_URL')) {
+            return getenv('ACCESS_CODE') ?: '0000';
         }
+        // Check local .env file
+        if (file_exists(__DIR__ . '/.env') && file_exists(__DIR__ . '/vendor/autoload.php')) {
+            require_once __DIR__ . '/vendor/autoload.php';
+            try {
+                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+                $dotenv->load();
+                return $_ENV['ACCESS_CODE'] ?? '0000';
+            } catch (Exception $e) {
+                return '0000';
+            }
+        }
+        return '0000';
     }
-    
-    return '0000';
-}
 
-// Check if already authenticated
-$isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+    // Check if already authenticated
+    $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
 
-// If NOT authenticated, show the access modal
+    // If NOT authenticated, show the access modal
 
     // If NOT authenticated, show the access modal
     if (!$isAuthenticated):
@@ -167,7 +166,7 @@ $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated
                 const successIcon = $("#successIcon");
                 const errorIcon = $("#errorIcon");
                 const statusMessage = $("#statusMessage");
-                const passcodeIcon = $("#passcode_icon");                
+                const passcodeIcon = $("#passcode_icon");
                 setTimeout(function() {
                     $("#accessCodeModal").modal("show");
                     $('#accessCodeModal').on('shown.bs.modal', function() {
@@ -523,9 +522,12 @@ $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated
             <?php
             $actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
             ?>
-            <form id="contactForm" action="https://formsubmit.co/pesova13@gmail.com" method="POST">
+            <form id="contactForm"  method="POST">
                 <!-- For auto response -->
-                <input type="hidden" name="_autoresponse" value="Thank You For Contacting Pesova">
+                <input type="hidden" name="_subject" value="New message from Portfolio">
+                <input type="hidden" name="_replyto" id="replytoEmail" value="">
+
+                <input type="hidden" name="_format" value="plain">
 
                 <input type="hidden" name="_next" value="<?php echo $actual_link . '?contact=sent'; ?>">
 
