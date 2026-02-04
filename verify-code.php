@@ -1,11 +1,32 @@
 <?php
-// verify-code.php
 session_start();
-require_once realpath(__DIR__ . "/vendor/autoload.php");
 
-use Dotenv\Dotenv;
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+if (getenv('RAILWAY_ENVIRONMENT') || file_exists('/etc/railway')) {
+    session_save_path('/tmp');
+}
+
+function getAccessCode() {
+    if (getenv('RAILWAY_ENVIRONMENT') || getenv('RAILWAY_STATIC_URL')) {
+        return getenv('ACCESS_CODE') ?: '0000';
+    }
+    
+    // Check local .env file
+    if (file_exists(__DIR__ . '/.env')) {
+        if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+            require_once __DIR__ . '/vendor/autoload.php';
+            try {
+                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+                $dotenv->load();
+                return $_ENV['ACCESS_CODE'] ?? '0000';
+            } catch (Exception $e) {
+                // If .env loading fails, return default
+                return '0000';
+            }
+        }
+    }
+    
+    return '0000';
+}
 
 header('Content-Type: application/json');
 
@@ -49,8 +70,8 @@ if (strlen($submittedCode) !== 4 || !ctype_digit($submittedCode)) {
     exit;
 }
 
-// Get the real code from environment
-$realCode = $_ENV['ACCESS_CODE'] ?? '';
+// Get the real code using our function
+$realCode = getAccessCode();
 
 // Verify (timing-safe comparison)
 $isValid = hash_equals($realCode, $submittedCode);

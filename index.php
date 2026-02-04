@@ -43,28 +43,57 @@
         </div>
     </header>
 
-    <?php
-    session_start();
-    require_once realpath(__DIR__ . "/vendor/autoload.php");
+<?php
+session_start();
 
-    use Dotenv\Dotenv;
-
-    $dotenv = Dotenv::createImmutable(__DIR__);
-    $dotenv->load();
-
-    $duration = 30 * 60;
-    $time = $_SERVER['REQUEST_TIME'];
-
-    if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
-        session_unset();
-        session_destroy();
-        session_start();
-    } else {
-        $_SESSION['LAST_ACTIVITY'] = $time;
+// Handle sessions differently for Railway vs Local
+if (getenv('RAILWAY_ENVIRONMENT') || file_exists('/etc/railway')) {
+    session_save_path('/tmp');
+} else {
+    // Local development - use local sessions directory
+    if (!is_dir(__DIR__ . '/sessions')) {
+        mkdir(__DIR__ . '/sessions', 0700, true);
     }
+    session_save_path(__DIR__ . '/sessions');
+}
 
-    // Check if already authenticated
-    $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+$duration = 30 * 60;
+$time = $_SERVER['REQUEST_TIME'];
+
+if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
+    session_unset();
+    session_destroy();
+    session_start();
+} else {
+    $_SESSION['LAST_ACTIVITY'] = $time;
+}
+
+// Function to get access code safely
+function getAccessCode() {
+    // Check Railway environment variables first
+    if (getenv('RAILWAY_ENVIRONMENT') || getenv('RAILWAY_STATIC_URL')) {
+        return getenv('ACCESS_CODE') ?: '0000';
+    }
+    
+    // Check local .env file
+    if (file_exists(__DIR__ . '/.env') && file_exists(__DIR__ . '/vendor/autoload.php')) {
+        require_once __DIR__ . '/vendor/autoload.php';
+        try {
+            $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+            $dotenv->load();
+            return $_ENV['ACCESS_CODE'] ?? '0000';
+        } catch (Exception $e) {
+            return '0000';
+        }
+    }
+    
+    return '0000';
+}
+
+// Check if already authenticated
+$isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+
+// If NOT authenticated, show the access modal
 
     // If NOT authenticated, show the access modal
     if (!$isAuthenticated):
