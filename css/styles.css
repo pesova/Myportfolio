@@ -58,6 +58,10 @@ html {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+/* Prevent horizontal overflow */
+html, body { overflow-x: hidden; }
+#mainNav { z-index: 1030; }
+
 article,
 aside,
 figcaption,
@@ -77,6 +81,8 @@ body {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
+    /* Mobile fix – offset for fixed navbar on small screens */
+    padding-top: 70px; /* height of navbar */
     color: #212529;
     text-align: left;
     background-color: #fff;
@@ -237,7 +243,6 @@ button {
 
 button:focus {
     outline: 1px dotted;
-    outline: 5px auto -webkit-focus-ring-color;
 }
 
 input,
@@ -2428,6 +2433,13 @@ input[type=button].btn-block {
     content: "";
     background: no-repeat center center;
     background-size: 100% 100%;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fed136' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Show X icon when menu is opened */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23fed136' stroke-width='2' stroke-linecap='round' d='M6 6L24 24M6 24L24 6'/%3E%3C/svg%3E");
+    transition: background-image 0.3s ease;
 }
 
 @media (max-width: 575.98px) {
@@ -2470,7 +2482,7 @@ input[type=button].btn-block {
         flex-basis: auto;
     }
     .navbar-expand-sm .navbar-toggler {
-        display: none;
+        display: block;
     }
 }
 
@@ -2514,7 +2526,7 @@ input[type=button].btn-block {
         flex-basis: auto;
     }
     .navbar-expand-md .navbar-toggler {
-        display: none;
+        display: block;
     }
 }
 
@@ -2558,7 +2570,7 @@ input[type=button].btn-block {
         flex-basis: auto;
     }
     .navbar-expand-lg .navbar-toggler {
-        display: none;
+        display: block;
     }
 }
 
@@ -2602,7 +2614,7 @@ input[type=button].btn-block {
         flex-basis: auto;
     }
     .navbar-expand-xl .navbar-toggler {
-        display: none;
+        display: block;
     }
 }
 
@@ -6035,14 +6047,16 @@ a.text-dark:focus {
     @page {
         size: a3;
     }
+@media (min-width: 992px) {
     body {
         min-width: 992px !important;
     }
     .container {
         min-width: 992px !important;
     }
+}
     .navbar {
-        display: none;
+        display: block;
     }
     .badge {
         border: 1px solid #000;
@@ -6156,8 +6170,11 @@ img::-moz-selection {
     font-size: 0.75rem;
     color: #fff;
     text-transform: uppercase;
-    background-color: #fed136;
+    background-color: transparent;
     border: 0;
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
 }
 
 #mainNav .navbar-brand {
@@ -6695,5 +6712,12 @@ section#contact form#contactForm :-ms-input-placeholder {
 @media (max-width:750px) {
     .texttypeloop p {
         font-size: 0.8rem;
+    }
+}
+
+/* Mobile navbar fix – ensure collapsed menu appears below fixed navbar */
+@media (max-width: 991px) {
+    #mainNav .navbar-collapse {
+        margin-top: 70px; /* same as body padding-top */
     }
 }
