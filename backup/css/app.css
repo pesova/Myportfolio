@@ -1,0 +1,226 @@
+.texttypeloop p {
+    font-weight: bold;
+    overflow: hidden;
+}
+
+.texttypeloop p span.typed-text {
+    font-weight: bolder;
+    color: #1F1558;
+}
+
+.texttypeloop p span.TypeCursor {
+    animation: blink 1s infinite;
+}
+
+.texttypeloop p span.TypeCursor.typing {
+    animation: none;
+}
+
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: inherit;
+    height: 1em;
+    overflow: visible;
+    vertical-align: -0.125em;
+}
+
+.svg-inline--fa.fa-stack-2x {
+    height: 2em;
+    width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.fa-stack {
+    display: inline-block;
+    height: 2em;
+    position: relative;
+    width: 2.5em;
+}
+
+.fa-4x {
+    font-size: 3em;
+}
+
+.fa-inverse {
+    color: #fff;
+}
+
+@media (min-width: 768px) {
+    .fa-4x {
+        font-size: 4em;
+    }
+}
+
+/* ===== ACCESS MODAL STYLES ===== */
+.modal.access.fade.show {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal.access .modal-content {
+    border-radius: 15px;
+    overflow: hidden;
+    border: none;
+}
+
+.modal.access .modal-body {
+    padding: 2.5rem;
+}
+
+/* Code input styling */
+.code-input {
+    font-size: 1.8rem !important;
+    letter-spacing: 0.5em !important;
+    padding-left: 0.5em !important;
+    height: 60px !important;
+    border-left: 0 !important;
+    text-align: center;
+}
+
+.code-input:focus {
+    border-color: #6b54eb !important;
+    box-shadow: 0 0 0 0.2rem rgba(107, 84, 235, 0.25) !important;
+}
+
+.code-input.is-valid {
+    border-color: #28a745 !important;
+    background-image: none !important;
+}
+
+.code-input.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: none !important;
+}
+
+/* Input group styling */
+.modal.access .input-group-text {
+    background: transparent !important;
+    border-right: 0 !important;
+    border-color: #dee2e6;
+}
+
+/* Loading spinner */
+.loading-spinner {
+    width: 25px;
+    height: 25px;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #6b54eb;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+    display: none;
+}
+
+/* Status icons */
+.status-icon span {
+    font-size: 1.5rem;
+    display: none;
+}
+
+#successIcon {
+    color: #28a745;
+}
+
+#errorIcon {
+    color: #dc3545;
+}
+
+/* Animations */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal.access.fade.show .modal-dialog {
+    animation: modalSlideIn 0.5s ease-out;
+}
+
+/* Padlock inside input */
+.input-with-icon {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 4;
+    pointer-events: none;
+}
+
+.code-input-with-icon {
+    height: 70px;
+    font-size: 2rem !important;
+    letter-spacing: 0.8em !important;
+    text-align: center !important;
+    padding-right: 0.8em !important;
+    padding-left: 60px !important;
+    border-radius: 10px !important;
+}
+
+.code-input-with-icon::placeholder {
+    color: #adb5bd;
+    letter-spacing: 0.8em;
+    text-indent: 0.4em;
+}
+
+/* Project description */
+/* Tech tags styling for project modals */
+.tech-tags {
+    margin: 10px 0;
+}
+
+.tech-tags .badge {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    margin-bottom: 5px;
+    background-color: #6b54eb;
+    color: white;
+    font-weight: 500;
+}
+
+/* Modal content styling */
+#project_long_description h6 {
+    color: #333;
+    margin-top: 15px;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+#project_long_description ul {
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+#project_long_description ul li {
+    margin-bottom: 5px;
+}
+
+#project_long_description p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
