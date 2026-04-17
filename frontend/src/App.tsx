@@ -8,8 +8,8 @@ export default function App() {
   const [authenticated, setAuthenticated] = useState(false)
 
   useEffect(() => {
-    let cancelled = false
-    ;(async () => {
+    let cancelled = false;
+    (async () => {
       try {
         const ok = await fetchGateStatus()
         if (!cancelled) {

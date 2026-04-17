@@ -233,7 +233,7 @@ $showContactThanks = isset($_GET['contact']) && $_GET['contact'] === 'sent';
 
                     // Send to server for verification
                     $.ajax({
-                        url: "verify-code.php",
+                        url: "gate.php",
                         type: "POST",
                         data: {
                             code: code
