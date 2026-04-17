@@ -1,3 +1,21 @@
+<?php
+
+require_once __DIR__ . '/includes/access.php';
+
+$https = !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off';
+$scheme = $https ? 'https' : 'http';
+$host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+$path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH) ?: '/';
+$canonicalUrl = $scheme . '://' . $host . $path;
+
+$scriptDir = str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/'));
+$assetBase = ($scriptDir === '/' || $scriptDir === '.') ? '' : rtrim($scriptDir, '/');
+$ogImage = $scheme . '://' . $host . $assetBase . '/assets/img/header-bg.webp';
+
+$metaDescription = 'Osueke Pesova — Full Stack Developer. Backend engineering, APIs, FinTech, and scalable web systems.';
+$showContactThanks = isset($_GET['contact']) && $_GET['contact'] === 'sent';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +23,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#ded9f3" />
-    <meta name="description" content="Pesova Profile" />
+    <meta name="description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>" />
     <meta name="author" content="Pesova Osueke" />
-    <title>Pesova Portfolio</title>
+    <title>Pesova Osueke — Portfolio</title>
+    <link rel="canonical" href="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="<?= htmlspecialchars($canonicalUrl, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta property="og:title" content="Pesova Osueke — Full Stack Developer" />
+    <meta property="og:description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta property="og:image" content="<?= htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pesova Osueke — Full Stack Developer" />
+    <meta name="twitter:description" content="<?= htmlspecialchars($metaDescription, ENT_QUOTES, 'UTF-8') ?>" />
+    <meta name="twitter:image" content="<?= htmlspecialchars($ogImage, ENT_QUOTES, 'UTF-8') ?>" />
     <link rel="icon" type="image/x-icon" href="assets/img/about/mine/wedprof.jpg" />
     <link rel="apple-touch-icon" href="assets/img/about/mine/wedprof.jpg">
 
@@ -20,6 +48,44 @@
 </head>
 
 <body id="page-top">
+    <?php
+    configure_portfolio_session();
+    session_start();
+
+    $duration = 30 * 60;
+    $time = $_SERVER['REQUEST_TIME'];
+
+    if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
+        session_unset();
+        session_destroy();
+        configure_portfolio_session();
+        session_start();
+    } else {
+        $_SESSION['LAST_ACTIVITY'] = $time;
+    }
+
+    $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
+    $accessConfigured = true;
+
+    if (!$isAuthenticated) {
+        $accessConfigured = getAccessCode() !== null;
+    }
+    ?>
+    <?php if ($isAuthenticated && $showContactThanks): ?>
+    <div class="container fixed-top" style="z-index: 1031; padding-top: 5.5rem;">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            Thank you for your message — I will get back to you soon.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        </div>
+    </div>
+    <script>
+        if (window.history && window.history.replaceState) {
+            var u = new URL(window.location.href);
+            u.searchParams.delete('contact');
+            window.history.replaceState({}, '', u.pathname + u.search + u.hash);
+        }
+    </script>
+    <?php endif; ?>
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
@@ -44,59 +110,7 @@
         </div>
     </header>
 
-    <?php
-
-    // Handle sessions differently for Railway vs Local
-    session_start();
-    // if (getenv('RAILWAY_ENVIRONMENT') || file_exists('/etc/railway')) {
-    //     session_save_path('/tmp');
-    // } else {
-    //     // Local development - use local sessions directory
-    //     if (!is_dir(__DIR__ . '/sessions')) {
-    //         mkdir(__DIR__ . '/sessions', 0700, true);
-    //     }
-    //     session_save_path(__DIR__ . '/sessions');
-    // }
-
-    $duration = 30 * 60;
-    $time = $_SERVER['REQUEST_TIME'];
-
-    if (isset($_SESSION['LAST_ACTIVITY']) && ($time - $_SESSION['LAST_ACTIVITY']) > $duration) {
-        session_unset();
-        session_destroy();
-        session_start();
-    } else {
-        $_SESSION['LAST_ACTIVITY'] = $time;
-    }
-
-    // Function to get access code safely
-    function getAccessCode()
-    {
-        // Check Railway environment variables first
-        if (getenv('RAILWAY_ENVIRONMENT') || getenv('RAILWAY_STATIC_URL')) {
-            return getenv('ACCESS_CODE') ?: '0000';
-        }
-        // Check local .env file
-        if (file_exists(__DIR__ . '/.env') && file_exists(__DIR__ . '/vendor/autoload.php')) {
-            require_once __DIR__ . '/vendor/autoload.php';
-            try {
-                $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
-                $dotenv->load();
-                return $_ENV['ACCESS_CODE'] ?? '0000';
-            } catch (Exception $e) {
-                return '0000';
-            }
-        }
-        return '0000';
-    }
-
-    // Check if already authenticated
-    $isAuthenticated = isset($_SESSION['authenticated']) && $_SESSION['authenticated'] === true;
-
-    // If NOT authenticated, show the access modal
-
-    // If NOT authenticated, show the access modal
-    if (!$isAuthenticated):
+    <?php if (!$isAuthenticated):
     ?>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
@@ -118,6 +132,9 @@
                             <p class="text-muted">Security measure to ensure only those I want can access my portfolio 😊</p>
                         </div>
 
+                        <?php if (!$accessConfigured): ?>
+                        <p class="text-center mb-0">Access is not configured on this server. Please email <a href="mailto:pesova13@gmail.com" style="color: #6b54eb;">pesova13@gmail.com</a>.</p>
+                        <?php else: ?>
                         <!-- Access Code Input -->
                         <div class="form-group">
                             <div class="input-with-icon">
@@ -148,6 +165,7 @@
                                 <p id="statusMessage" class="text-center mb-0" style="min-height: 20px;"></p>
                             </div>
                         </div>
+                        <?php endif; ?>
 
                         <!-- Footer -->
                         <div class="text-center mt-1">
@@ -162,6 +180,12 @@
 
         <script>
             $(document).ready(function() {
+                <?php if (!$accessConfigured): ?>
+                setTimeout(function() {
+                    $("#accessCodeModal").modal("show");
+                }, 400);
+                return;
+                <?php endif; ?>
                 const codeInput = $("#codeInput");
                 const loadingSpinner = $("#loadingSpinner");
                 const successIcon = $("#successIcon");
@@ -273,8 +297,7 @@
         </script>
 
     <?php
-        // Exit after showing modal
-        exit("Access denied");
+        exit;
     endif;
     ?>
     <!-- About-->
@@ -324,7 +347,7 @@
             <ul class="timeline">
                 <li>
                     <div class="timeline-image" data-aos="zoom-out-right">
-                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/Prof-small.jpg" srcset="assets/img/about/mine/Prof-small.jpg 480w, assets/img/about/mine/Prof.jpg 1080w" sizes="50vw" alt="" />
+                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/Prof-small.jpg" srcset="assets/img/about/mine/Prof-small.jpg 480w, assets/img/about/mine/Prof.jpg 1080w" sizes="50vw" alt="Portrait — early journey in web development" />
                     </div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -332,13 +355,13 @@
                             <h4 class="subheading" data-aos="zoom-out-right">Humble Beginnings</h4>
                         </div>
                         <div class="timeline-body" data-aos="zoom-out-right">
-                            <p class="text-black">I Started Basic HTML and CSS On My own, then Saw the wonderfull things JavaScript Could Do. I started building Cool basic Websites and Writing blogs. Then i could call myself A Frontend Developer.</p>
+                            <p class="text-black">I started with basic HTML and CSS on my own, then saw what JavaScript could do. I began building simple websites and writing blog posts, and gradually thought of myself as a frontend developer.</p>
                         </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
                     <div class="timeline-image" data-aos="zoom-out-left">
-                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/Prof1.jpg" srcset="assets/img/about/mine/Prof1-small.jpg 480w, assets/img/about/mine/Prof1.jpg 1080w" sizes="50vw" alt="" />
+                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/Prof1.jpg" srcset="assets/img/about/mine/Prof1-small.jpg 480w, assets/img/about/mine/Prof1.jpg 1080w" sizes="50vw" alt="Portrait — exploring backend programming" />
                     </div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -346,12 +369,12 @@
                             <h4 class="subheading" data-aos="zoom-out-left">Backend Journey</h4>
                         </div>
                         <div class="timeline-body" data-aos="zoom-out-left">
-                            <p class="text-black">With Research and online Learning Schools like w3shools, I Learnt About python,C,C# and PhP. I focused more on PhP because it was what I needed more as a Web Developer.</p>
+                            <p class="text-black">Through research and online learning resources like W3Schools, I explored Python, C, C#, and PHP. I focused most on PHP because it matched what I needed as a web developer.</p>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="timeline-image" data-aos="zoom-out-right"><img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/startng.jpg" alt="" /></div>
+                    <div class="timeline-image" data-aos="zoom-out-right"><img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/startng.jpg" alt="StartNG internship" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4 data-aos="fade-down-right">2020</h4>
@@ -359,14 +382,13 @@
                         </div>
                         <div class="timeline-body" data-aos="zoom-out-right">
                             <p class="text-black
-                            ">I Was Introduced to <b><a style="color: #120172" href="https://start.ng/">StartNg internship</a></b>, where i got exposed to many interns with programming Languages, both on the Design, Mobile, Frontend, Backend, where i had
-                                little experience building site from figma. It was wonderfull as I Learnt and focused more on PhP, where i built a Hospital Site. I Made it to the Final Stage But not to the Project Stage.</p>
+                            ">I joined the <b><a style="color: #120172" href="https://start.ng/">StartNG internship</a></b>, where I worked alongside people across design, mobile, frontend, and backend. I gained some experience building from Figma designs, learned a lot, and focused on PHP—including a hospital site project. I reached the final stage but not the final project stage.</p>
                         </div>
                     </div>
                 </li>
                 <li class="timeline-inverted">
                     <div class="timeline-image" data-aos="zoom-out-left">
-                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/HNG intern1.png" alt="" />
+                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/HNG intern1.png" alt="HNG internship" />
                     </div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -374,14 +396,12 @@
                             <h4 class="subheading" data-aos="zoom-out-left">Phase Two Expansion</h4>
                         </div>
                         <div class="timeline-body" data-aos="zoom-out-left">
-                            <p class="text-black">From StartNg we were Introduced to <b><a style="color: #120172" href="
-                                https://hngi7.hng.tech/">HNG</a></b> which was So Competitive and was Sponsored by Google, FlutterWave, Hotels.ng, PiggyVest and many more. I learnt About Many things especially Laravel Framework, Rest API and Android Studio.
-                                At HNG I got to connect with many Mentors and understood Tech World Very Well, graduated and got my certificate as a Finalist</p>
+                            <p class="text-black">From StartNG we were introduced to <b><a style="color: #120172" href="https://hngi7.hng.tech/">HNG</a></b>, a competitive program sponsored by companies including Google, Flutterwave, Hotels.ng, and PiggyVest. I deepened my skills in Laravel, REST APIs, and Android Studio, connected with mentors, and graduated as a finalist.</p>
                         </div>
                     </div>
                 </li>
                 <li>
-                    <div class="timeline-image" data-aos="zoom-out-right"><img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/wedprof.jpg" alt="" /></div>
+                    <div class="timeline-image" data-aos="zoom-out-right"><img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/wedprof.jpg" alt="Freelancing period" /></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
                             <h4 data-aos="fade-down-right">2021-2022</h4>
@@ -396,7 +416,7 @@
                 </li>
                 <li>
                     <div class="timeline-image" data-aos="zoom-out-right">
-                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/prof_mine.png" alt="" />
+                        <img width="640" height="360" class="rounded-circle img-fluid" src="assets/img/about/mine/prof_mine.png" alt="Professional growth and backend specialization" />
                     </div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
@@ -438,7 +458,7 @@
                     <span style="color: #2a0fc5; text-decoration:none">S</span>
                 </h3>
 
-                <h3 class="section-subheading text-muted" data-aos="fade-up-left">Project I built or Contributed as a Team</h3>
+                <h3 class="section-subheading text-muted" data-aos="fade-up-left">Projects I built or contributed to as part of a team</h3>
             </div>
             <div class="row" id="projects_section" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
                 <!-- Loaded from JS -->
@@ -559,6 +579,7 @@
 
 
                     <div id="success"></div>
+                    <div id="formMessage" class="alert mt-3 mb-0 text-left" role="alert" style="display: none;"></div>
                     <button style="background-color: #4b34cc; border: none" class="btn btn-info btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
                 </div>
             </form>
@@ -653,15 +674,5 @@
         });
     </script>
 </body>
-<?php
-
-if (isset($_GET['contact'])) {
-    echo '<script type="text/JavaScript">
-          alert("Thank You For Contacting me");
-          window.location.href = window.location.pathname;
-      </script>';
-}
-
-?>
 
 </html>

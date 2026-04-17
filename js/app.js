@@ -411,14 +411,8 @@ let Projects = [
   {
     name: "Pastecs",
     description: "Online Learning Platform",
-    long_description: `Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world. Just like udemy, it tracks students progress and gives them access to the courses they have purchased. 
-        <br/>  <b>Login details</b> <br/>  Email: <b>pesova13@gmail.com</b>, Password <b>pesotech</b>, Role: <b>student</b>. 
-        <br/> Email: <b>pesotech@instructor.com</b>, Password <b>password</b>, Role: <b>instructor</b>. <p>(contact me for admin details)</p>
-        <pre>card_number: 5399838383838381,
-        cvv: 470,
-        expiry_date: 10/31,
-        pin: 3310,
-        otp: 12345 </pre>`,
+    long_description: `Worked with a team in developing this web portal with Admin panel used by schools to post online courses and employ tutors around the world. Just like Udemy, it tracks student progress and gives them access to the courses they have purchased.
+        <p class="mb-0"><em>Demo access is available on request — contact me for safe test credentials.</em></p>`,
     date: "October 2020",
     client: "Chuks (School Director)",
     category: "Learning Platform",
@@ -448,13 +442,8 @@ let Projects = [
   {
     name: "Strip It",
     description: "Video Posting Site",
-    long_description: `Single-handedly Developed this full-stack web application, using PHP (Laravel) that has a four level user role (user, performer, moderator, admin), where performers post videos and get tipped by users, and receive there payment through stripe or paypal and also get different badges according to tips. Moderators and admin has different access to manage the hole platform.
-        <br/>  <b>Login details</b> <br/>  Username: <b>pesova</b>, Password <b>password</b>, Role: <b>user</b>. 
-        <br/> Username: <b>performer</b>, Password <b>password</b>, Role: <b>performer</b>. <p>(contact me for admin or moderator details)</p>
-        <pre>card_number: 5555555555554444,
-        cvv: 564,
-        expiry_date: 09/32,
-        postal code: 12345 </pre>`,
+    long_description: `Single-handedly developed this full-stack web application using PHP (Laravel) with four user roles (user, performer, moderator, admin). Performers post videos, receive tips from users, and get paid through Stripe or PayPal, with badges based on engagement. Moderators and admins have tiered access to manage the platform.
+        <p class="mb-0"><em>Demo access is available on request — contact me for safe test credentials.</em></p>`,
     date: "March 2021",
     client: "Fibre User",
     category: "Video Portal",
@@ -504,11 +493,13 @@ $(document).ready(function () {
             dataType: 'json',
             success: function(response) {
                 if (response.ok) {
-                    alert("Thank You For Contacting Me")
+                    formMessage.removeClass('alert-danger').addClass('alert-success')
+                        .html('<i class="fas fa-check-circle"></i> Thank you — your message was sent.')
+                        .show();
                     $('#contactForm')[0].reset();
                     $('#replytoEmail').val('');
                 } else {
-                    formMessage.addClass('alert-danger')
+                    formMessage.removeClass('alert-success').addClass('alert-danger')
                         .html('<i class="fas fa-exclamation-circle"></i> Failed to send message. Please try again.')
                         .show();
                 }
@@ -516,7 +507,9 @@ $(document).ready(function () {
             },
             error: function(xhr, status, error) {
                 submitBtn.html(originalText).prop('disabled', false);
-                alert("Please check your internet and retry")
+                formMessage.removeClass('alert-success').addClass('alert-danger')
+                    .html('<i class="fas fa-exclamation-circle"></i> Network error. Please check your connection and try again.')
+                    .show();
             }
         });
     });
@@ -538,7 +531,7 @@ function projectModal(element) {
   $("#project_description").text(description);
   $("#project_long_description").html(long_description);
   $("#project_date").text(`Date: ${date}`);
-  $("#project_client").text(`CLient: ${client}`);
+  $("#project_client").text(`Client: ${client}`);
   $("#project_category").text(`Category: ${category}`);
   $("#project_link").attr("href", link);
   $("#project_image").attr("src", `assets/img/logos/${image}.webp`);
