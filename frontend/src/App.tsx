@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { GalaxyBg } from './components/GalaxyBg'
 import { GateScreen } from './components/GateScreen'
 import { PortfolioApp } from './components/PortfolioApp'
 import { fetchGateStatus } from './lib/gateApi'
@@ -40,5 +41,10 @@ export default function App() {
     return <GateScreen onUnlocked={() => setAuthenticated(true)} />
   }
 
-  return <PortfolioApp />
+  return (
+    <div className="h-dvh overflow-hidden">
+      <GalaxyBg />
+      <PortfolioApp />
+    </div>
+  )
 }

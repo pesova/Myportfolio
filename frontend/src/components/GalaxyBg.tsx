@@ -22,7 +22,10 @@ const galaxyProps = {
  */
 export function GalaxyBg() {
   return (
-    <div className="pointer-events-none fixed inset-0 z-0 bg-black" aria-hidden>
+    <div
+      className="pointer-events-none fixed inset-0 z-0 bg-black [contain:strict]"
+      aria-hidden
+    >
       <Galaxy {...galaxyProps} className="absolute inset-0 h-full min-h-full w-full" />
     </div>
   )

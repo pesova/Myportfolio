@@ -15,11 +15,6 @@ export const skillLogos: SkillLogo[] = [
     title: 'TypeScript',
   },
   {
-    src: `${D}/javascript/javascript-plain.svg`,
-    alt: 'JavaScript',
-    title: 'JavaScript',
-  },
-  {
     src: `${D}/nodejs/nodejs-original-wordmark.svg`,
     alt: 'Node.js',
     title: 'Node.js',
@@ -28,6 +23,11 @@ export const skillLogos: SkillLogo[] = [
     src: `${D}/laravel/laravel-original-wordmark.svg`,
     alt: 'Laravel',
     title: 'Laravel',
+  },
+  {
+    src: `${D}/javascript/javascript-plain.svg`,
+    alt: 'JavaScript',
+    title: 'JavaScript',
   },
   {
     src: `${D}/amazonwebservices/amazonwebservices-original-wordmark.svg`,
@@ -90,18 +90,18 @@ export const skillLogos: SkillLogo[] = [
     title: 'Docker',
   },
   {
-    src: `${D}/express/express-original-wordmark.svg`,
-    alt: 'Express',
-    title: 'Express',
+    src: `${D}/css3/css3-original-wordmark.svg`,
+    alt: 'CSS',
+    title: 'CSS',
   },
   {
-    src: `${D}/adonisjs/adonisjs-original-wordmark.svg`,
-    alt: 'AdonisJS',
-    title: 'AdonisJS',
+    src: `${D}/digitalocean/digitalocean-original-wordmark.svg`,
+    alt: 'digitalocean',
+    title: 'digitalocean',
   },
   {
-    src: `${D}/solidity/solidity-original.svg`,
-    alt: 'Solidity',
-    title: 'Solidity',
+    src: `${D}/nextjs/nextjs-original.svg`,
+    alt: 'Nextjs',
+    title: 'Nextjs',
   }
 ]

@@ -1,6 +1,5 @@
 import { useState, type SubmitEvent } from 'react'
 import { projects, type Project } from '../data/projects'
-import { GalaxyBg } from './GalaxyBg'
 import { SkillsSection } from './SkillsSection'
 
 const FORMSPREE_ID = 'mgozgjjj'
@@ -97,9 +96,7 @@ export function PortfolioApp() {
   }
 
   return (
-    <div className="dark relative min-h-svh text-slate-200">
-      <GalaxyBg />
-
+    <div className="dark relative flex h-full min-h-0 flex-col text-slate-200">
       <header className="fixed top-0 z-40 w-full border-b border-white/5 bg-black/35 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <a href="#top" className="text-lg font-semibold tracking-tight text-white">
@@ -130,6 +127,10 @@ export function PortfolioApp() {
         </nav>
       </header>
 
+      <div
+        id="portfolio-scroll"
+        className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-y-contain"
+      >
       <main className="relative z-10">
         <section
           id="top"
@@ -309,6 +310,7 @@ export function PortfolioApp() {
           </div>
         </footer>
       </main>
+      </div>
 
       <ProjectModal project={modal} onClose={() => setModal(null)} />
     </div>
