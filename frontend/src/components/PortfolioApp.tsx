@@ -1,5 +1,6 @@
 import { useState, type SubmitEvent } from 'react'
 import { projects, type Project } from '../data/projects'
+import { GalaxyBg } from './GalaxyBg'
 
 const FORMSPREE_ID = 'mgozgjjj'
 
@@ -95,24 +96,10 @@ export function PortfolioApp() {
   }
 
   return (
-    <div className="min-h-svh bg-[#050508] text-slate-200">
-      <div
-        className="pointer-events-none fixed inset-0 opacity-80"
-        style={{
-          background:
-            'linear-gradient(130deg, #0c0220 0%, #050508 40%, #06122a 75%, #0a0528 100%)',
-        }}
-      />
-      <div
-        className="pointer-events-none fixed -left-40 top-0 h-[420px] w-[420px] rounded-full bg-violet-600/30 blur-[100px]"
-        style={{ animation: 'blob-float 20s ease-in-out infinite' }}
-      />
-      <div
-        className="pointer-events-none fixed -right-32 bottom-0 h-[380px] w-[380px] rounded-full bg-cyan-500/20 blur-[90px]"
-        style={{ animation: 'blob-float 24s ease-in-out infinite reverse' }}
-      />
+    <div className="dark relative min-h-svh text-slate-200">
+      <GalaxyBg />
 
-      <header className="fixed top-0 z-40 w-full border-b border-white/5 bg-[#050508]/75 backdrop-blur-xl">
+      <header className="fixed top-0 z-40 w-full border-b border-white/5 bg-black/35 backdrop-blur-xl">
         <nav className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <a href="#top" className="text-lg font-semibold tracking-tight text-white">
             Pesova
@@ -143,7 +130,7 @@ export function PortfolioApp() {
           className="mx-auto max-w-6xl px-4 pb-24 pt-32 sm:px-6 sm:pt-40"
         >
           <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-300/90">
-            Full stack · Backend focus
+            Full stack developer · Backend focus
           </p>
           <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
             Building scalable APIs, secure money flows, and clear systems.
