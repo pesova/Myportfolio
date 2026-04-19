@@ -1,10 +1,14 @@
 import { useState, type SubmitEvent } from 'react'
-import { BookOpen, ExternalLink } from 'lucide-react'
+import { BookOpen, Briefcase, ExternalLink, User } from 'lucide-react'
 import { projectHeroSrc, projects, type Project } from '../data/projects'
 import { ProjectCard } from './ProjectCard'
 import { SkillsSection } from './SkillsSection'
 
 const FORMSPREE_ID = 'mgozgjjj'
+
+/** Same gradient + glow as hero “Pesova”; sized for section headings */
+const SECTION_TITLE_CLASS =
+  'bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300 bg-clip-text text-center text-3xl font-bold tracking-tight text-transparent [filter:drop-shadow(0_0_28px_rgba(167,139,250,0.55))_drop-shadow(0_0_52px_rgba(34,211,238,0.3))] sm:text-4xl lg:text-5xl motion-reduce:[filter:none]'
 
 function ModalProjectHero({ project }: { project: Project }) {
   const fallback = `/assets/img/logos/${project.image}.webp`
@@ -168,60 +172,94 @@ export function PortfolioApp() {
       <main className="relative z-10">
         <section
           id="top"
-          className="mx-auto max-w-6xl px-4 pb-24 pt-32 sm:px-6 sm:pt-40"
+          className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-6xl flex-col items-center justify-center px-4 pb-24 pt-28 text-center sm:min-h-[calc(100dvh-5.5rem)] sm:px-6 sm:pt-32"
         >
-          <p className="text-sm font-medium uppercase tracking-[0.2em] text-violet-300/90">
-            Full stack developer · Backend focus
-          </p>
-          <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            Building scalable APIs, secure money flows, and clear systems.
+          <h1 className="max-w-4xl">
+            <span
+              className="block bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300 bg-clip-text text-5xl font-bold tracking-tight text-transparent [filter:drop-shadow(0_0_28px_rgba(167,139,250,0.55))_drop-shadow(0_0_52px_rgba(34,211,238,0.3))] sm:text-6xl lg:text-7xl motion-reduce:[filter:none]"
+            >
+              Pesova
+            </span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-slate-400">
-            Osueke Pesova — engineer with strong backend, API, and FinTech experience. Based in
-            Nigeria; shipping products with TypeScript, Node.js, and pragmatic architecture.
+          <p className="mt-5 text-xl font-bold tracking-tight text-white sm:text-2xl">
+            Backend Developer
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div
+            className="mx-auto mt-7 h-px w-44 max-w-[90%] rounded-full bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 shadow-[0_0_14px_rgba(167,139,250,0.45)] sm:w-52"
+            aria-hidden
+          />
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
+            Delivering powerful backend systems driven by a passion for solving real-world challenges
+            — scalable APIs, secure money flows, and clear architecture with TypeScript, Node.js, and
+            FinTech-grade rigor. Based in Nigeria.
+          </p>
+          <div className="mt-12 flex flex-wrap justify-center gap-4">
             <a
               href="#projects"
-              className="rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 hover:bg-violet-500"
+              className="rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500"
             >
               View work
             </a>
             <a
               href="#contact"
-              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:bg-white/10"
+              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
             >
               Contact
             </a>
           </div>
         </section>
 
-        <section id="about" className="border-t border-white/5 bg-black/20 py-20">
+        <section id="about" className="border-t border-white/5 bg-black/20 py-16 sm:py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">About</h2>
-            <div className="mt-8 space-y-6 text-slate-400">
-              <p>
-                Full stack developer with several years of experience building scalable, secure web
-                applications. I focus on backend engineering, API design, and architecture for
-                real-world domains including payments and financial workflows.
-              </p>
-              <p>
-                Core stack includes TypeScript, Node.js, Express, AdonisJS, MongoDB, Redis, and
-                RESTful APIs — plus PHP/Laravel where it fits. I care about maintainability,
-                performance, and working well with teams.
-              </p>
+            <h2 className={`${SECTION_TITLE_CLASS} mb-10 sm:mb-14`}>About Me</h2>
+            <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+              <div className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl shadow-2xl lg:mx-0 lg:max-w-none">
+                <img
+                  src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&q=80"
+                  alt="Osueke Pesova workspace"
+                  className="rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              <div className="text-left">
+                <div className="space-y-4 text-base leading-relaxed text-white/90 sm:text-lg">
+                  <p>
+                    I'm a full stack developer with strong backend focus, building scalable, secure web
+                    applications for real-world domains including payments and financial workflows.
+                  </p>
+                </div>
+
+                <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
+                  <div className="rounded-2xl border border-pink-500/45 bg-white/[0.04] p-4 sm:p-5">
+                    <User
+                      className="size-8 stroke-[1.5] text-pink-400 sm:size-9"
+                      aria-hidden
+                    />
+                    <p className="mt-3 text-sm font-medium text-white">Experience</p>
+                    <p className="text-starWhite/70">6 years</p>
+                  </div>
+                  <div className="rounded-2xl border border-sky-500/45 bg-white/[0.04] p-4 sm:p-5">
+                    <Briefcase
+                      className="size-8 stroke-[1.5] text-sky-400 sm:size-9"
+                      aria-hidden
+                    />
+                    <p className="mt-3 text-sm font-medium text-white">Projects</p>
+                    <p className="text-starWhite/70">
+                      8+ Completed
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
 
         <SkillsSection />
 
-        <section id="projects" className="overflow-visible py-20">
+        <section id="projects" className="overflow-visible py-10">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="text-center text-2xl font-semibold text-violet-300 sm:text-3xl">
-              Featured Projects
-            </h2>
-            <div className="mt-12 grid gap-10 overflow-visible pb-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className={`${SECTION_TITLE_CLASS} mb-2`}>Featured Projects</h2>
+            <div className="mt-10 grid gap-10 overflow-visible pb-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((p) => (
                 <ProjectCard key={p.name} project={p} onOpenDetails={setModal} />
               ))}
@@ -232,8 +270,10 @@ export function PortfolioApp() {
         <section id="contact" className="border-t border-white/5 py-24">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <div className="mx-auto max-w-xl rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
-              <h2 className="text-2xl font-semibold text-white">Contact</h2>
-              <p className="mt-2 text-slate-400">Let&apos;s talk about your next project.</p>
+              <h2 className={`${SECTION_TITLE_CLASS}`}>Get In Touch</h2>
+              <p className="mt-3 text-center text-slate-400">
+                Let&apos;s talk about your next project.
+              </p>
               <form className="mt-8 space-y-4" onSubmit={onSubmitForm}>
                 <input type="hidden" name="_subject" value="New message from Portfolio (React)" />
                 <input type="hidden" name="_format" value="plain" />
