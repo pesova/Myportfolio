@@ -47,7 +47,7 @@ function ProjectModal({
         aria-label="Close"
         onClick={onClose}
       />
-      <div className="relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0a0a0f] p-6 shadow-2xl">
+      <div className="scrollbar-themed relative max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-2xl border border-white/10 bg-[#0a0a0f] p-6 shadow-2xl">
         <button
           type="button"
           onClick={onClose}
@@ -163,7 +163,7 @@ export function PortfolioApp() {
 
       <div
         id="portfolio-scroll"
-        className="min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-y-contain"
+        className="portfolio-scroll scrollbar-themed min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-y-contain"
       >
       <main className="relative z-10">
         <section
