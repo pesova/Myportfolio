@@ -1,8 +1,30 @@
 import { useState, type SubmitEvent } from 'react'
-import { projects, type Project } from '../data/projects'
+import { BookOpen, ExternalLink } from 'lucide-react'
+import { projectHeroSrc, projects, type Project } from '../data/projects'
+import { ProjectCard } from './ProjectCard'
 import { SkillsSection } from './SkillsSection'
 
 const FORMSPREE_ID = 'mgozgjjj'
+
+function ModalProjectHero({ project }: { project: Project }) {
+  const fallback = `/assets/img/logos/${project.image}.webp`
+  const primary = projectHeroSrc(project)
+  return (
+    <img
+      key={project.name}
+      src={primary}
+      alt=""
+      className="mt-4 max-h-48 w-full rounded-xl object-cover"
+      onError={(e) => {
+        const el = e.currentTarget
+        if (project.screenshot && !el.dataset.fallback) {
+          el.dataset.fallback = '1'
+          el.src = fallback
+        }
+      }}
+    />
+  )
+}
 
 function ProjectModal({
   project,
@@ -37,11 +59,7 @@ function ProjectModal({
           {project.name}
         </h2>
         <p className="mt-1 text-sm text-violet-300/90">{project.description}</p>
-        <img
-          src={`/assets/img/logos/${project.image}.webp`}
-          alt=""
-          className="mt-4 w-full max-h-48 rounded-xl object-contain"
-        />
+        <ModalProjectHero project={project} />
         <div
           className="prose prose-invert mt-4 max-w-none text-sm prose-p:text-slate-300 prose-headings:text-white"
           dangerouslySetInnerHTML={{ __html: project.long_description }}
@@ -51,14 +69,30 @@ function ProjectModal({
           <li>Client: {project.client}</li>
           <li>Category: {project.category}</li>
         </ul>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-flex rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-violet-500"
-        >
-          View project
-        </a>
+        <div className="mt-6 flex flex-wrap gap-3">
+          {project.siteUrl ? (
+            <a
+              href={project.siteUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl bg-violet-600 px-4 py-2.5 text-sm font-medium text-white hover:bg-violet-500"
+            >
+              <ExternalLink className="size-4" aria-hidden />
+              Live site
+            </a>
+          ) : null}
+          {project.docsUrl ? (
+            <a
+              href={project.docsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-violet-500/40 bg-violet-500/10 px-4 py-2.5 text-sm font-medium text-violet-200 hover:bg-violet-500/20"
+            >
+              <BookOpen className="size-4" aria-hidden />
+              API docs
+            </a>
+          ) : null}
+        </div>
       </div>
     </div>
   )
@@ -182,31 +216,14 @@ export function PortfolioApp() {
 
         <SkillsSection />
 
-        <section id="projects" className="py-20">
+        <section id="projects" className="overflow-visible py-20">
           <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className="text-2xl font-semibold text-white sm:text-3xl">Projects</h2>
-            <p className="mt-2 text-slate-400">Selected work — click a card for details.</p>
-            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <h2 className="text-center text-2xl font-semibold text-violet-300 sm:text-3xl">
+              Featured Projects
+            </h2>
+            <div className="mt-12 grid gap-10 overflow-visible pb-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
               {projects.map((p) => (
-                <button
-                  key={p.name}
-                  type="button"
-                  onClick={() => setModal(p)}
-                  className="group rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-left transition hover:border-violet-500/40 hover:bg-white/[0.06]"
-                >
-                  <div className="overflow-hidden rounded-xl bg-black/40">
-                    <img
-                      src={`/assets/img/logos/${p.image}.webp`}
-                      alt=""
-                      className="h-40 w-full object-cover transition group-hover:scale-[1.02]"
-                    />
-                  </div>
-                  <h3 className="mt-4 font-semibold text-white">{p.name}</h3>
-                  <p className="mt-1 text-sm text-slate-400">{p.description}</p>
-                  <span className="mt-3 inline-block rounded-full border border-violet-500/30 bg-violet-500/10 px-3 py-0.5 text-xs text-violet-200">
-                    {p.category}
-                  </span>
-                </button>
+                <ProjectCard key={p.name} project={p} onOpenDetails={setModal} />
               ))}
             </div>
           </div>

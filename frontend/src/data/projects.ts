@@ -5,8 +5,21 @@ export type Project = {
   date: string
   client: string
   category: string
+  /** Logo slug under `/assets/img/logos/*.webp` (modal fallback). */
   image: string
-  link: string
+  /** Screenshot filename under `/assets/img/projects_screenshot/`. Omit to use logo only. */
+  screenshot?: string
+  siteUrl?: string
+  docsUrl?: string
+  stack: string[]
+}
+
+/** Hero image for cards/modal: screenshot when present, else logo webp. */
+export function projectHeroSrc(project: Project): string {
+  if (project.screenshot) {
+    return `/assets/img/projects_screenshot/${project.screenshot}`
+  }
+  return `/assets/img/logos/${project.image}.webp`
 }
 
 /** Ported from `js/app.js` — extend or edit here. */
@@ -23,29 +36,9 @@ export const projects: Project[] = [
     client: 'LiquidRamp',
     category: 'FinTech Core Infrastructure',
     image: 'liquidramp',
-    link: 'https://liquidramp.com',
-  },
-  {
-    name: 'Fracxn Marketplace Lending API',
-    description: 'Backend API for a Digital Lending Marketplace',
-    long_description: `
-    <p class="text-slate-300">Lending marketplace API: tests, DB locking for notifications, loan flows, RBAC. Merged 10+ PRs improving reliability.</p>`,
-    date: 'June - July 2025',
-    client: 'Fracxn',
-    category: 'FinTech API',
-    image: 'fracxn',
-    link: 'https://sandbox.marketplace.fracxn.com',
-  },
-  {
-    name: 'Dexfiat Crypto Exchange',
-    description: 'Full-Stack Development of a P2P Crypto Trading Platform',
-    long_description: `
-    <p class="text-slate-300">P2P crypto exchange: MySQL models, AI chatbot actions, LiquidRamp integration, multi-currency fiat/crypto flows.</p>`,
-    date: '2024-2025',
-    client: 'Dexfiat',
-    category: 'FinTech / Crypto Exchange',
-    image: 'dexfiat',
-    link: 'https://dexfiat.exchange',
+    screenshot: 'liquidramp.png',
+    siteUrl: 'https://liquidramp.com',
+    stack: ['TypeScript', 'Node.js', 'MySQL', 'AWS'],
   },
   {
     name: 'Carbon Credit Tokenization API',
@@ -56,7 +49,36 @@ export const projects: Project[] = [
     client: 'Sustainology',
     category: 'FinTech / Web3 API',
     image: 'sustainology',
-    link: 'https://sustainology-dev.fracxn.com/api/docs',
+    screenshot: 'carbon.png',
+    siteUrl: 'https://sustainology-dev.fracxn.com',
+    docsUrl: 'https://sustainology-dev.fracxn.com/api/docs',
+    stack: ['TypeScript', 'Node.js', 'Web3', 'React'],
+  },
+  {
+    name: 'Fracxn Marketplace Lending API',
+    description: 'Backend API for a Digital Lending Marketplace',
+    long_description: `
+    <p class="text-slate-300">Lending marketplace API: tests, DB locking for notifications, loan flows, RBAC. Merged 10+ PRs improving reliability.</p>`,
+    date: 'June - July 2025',
+    client: 'Fracxn',
+    category: 'FinTech API',
+    image: 'fracxn',
+    screenshot: 'fracxn-marketplace.png',
+    siteUrl: 'https://sandbox.marketplace.fracxn.com',
+    stack: ['Laravel', 'Node.js', 'MySQL', 'TypeScript'],
+  },
+  {
+    name: 'Dexfiat Crypto Exchange',
+    description: 'Full-Stack Development of a P2P Crypto Trading Platform',
+    long_description: `
+    <p class="text-slate-300">P2P crypto exchange: MySQL models, AI chatbot actions, LiquidRamp integration, multi-currency fiat/crypto flows.</p>`,
+    date: '2024-2025',
+    client: 'Dexfiat',
+    category: 'FinTech / Crypto Exchange',
+    image: 'dexfiat',
+    screenshot: 'dexfiat.png',
+    siteUrl: 'https://dexfiat.exchange',
+    stack: ['Node.js', 'MySQL', 'WebSockets', 'FinTech'],
   },
   {
     name: 'Sakora Platform',
@@ -67,7 +89,10 @@ export const projects: Project[] = [
     client: 'Sakora',
     category: 'FinTech Backend',
     image: 'sakora',
-    link: 'https://dev.sakora.io',
+    screenshot: 'sakora.png',
+    siteUrl: 'https://dev.sakora.io',
+    docsUrl: 'https://dev.sakora.io/api/b2c/v1/docs/',
+    stack: ['Node.js', 'Crypto', 'Laravel', 'AWS'],
   },
   {
     name: 'Wealth Vault API',
@@ -78,6 +103,8 @@ export const projects: Project[] = [
     client: 'Wealth Vault',
     category: 'Financial API',
     image: 'wealthvault',
-    link: 'https://documenter.getpostman.com/view/11742809/2sA3XWdyhR',
+    screenshot: 'fracxn-wealthvault.png',
+    docsUrl: 'https://documenter.getpostman.com/view/11742809/2sA3XWdyhR',
+    stack: ['Node.js', 'MongoDB', 'Postman', 'AWS'],
   },
 ]
