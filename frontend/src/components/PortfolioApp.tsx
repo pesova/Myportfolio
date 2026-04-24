@@ -271,7 +271,7 @@ export function PortfolioApp() {
                         aria-hidden
                       />
                       <p className="mt-3 text-sm font-medium text-white">Experience</p>
-                      <p className="text-starWhite/70">6 years</p>
+                      <p className="text-white/60">6 years</p>
                     </div>
                     <div className="rounded-2xl border border-sky-500/45 bg-white/[0.04] p-4 sm:p-5">
                       <Briefcase
@@ -279,7 +279,7 @@ export function PortfolioApp() {
                         aria-hidden
                       />
                       <p className="mt-3 text-sm font-medium text-white">Projects</p>
-                      <p className="text-starWhite/70">
+                      <p className="text-white/60">
                         8+ Completed
                       </p>
                     </div>
