@@ -1,5 +1,5 @@
-import { useState, type SubmitEvent } from 'react'
-import { BookOpen, Briefcase, ExternalLink, User } from 'lucide-react'
+import { useState, type SubmitEvent, type SVGProps } from 'react'
+import { BookOpen, Briefcase, ExternalLink, Mail, User } from 'lucide-react'
 import { projectHeroSrc, projects, type Project } from '../data/projects'
 import { ProjectCard } from './ProjectCard'
 import { SkillsSection } from './SkillsSection'
@@ -9,6 +9,30 @@ const FORMSPREE_ID = 'mgozgjjj'
 /** Same gradient + glow as hero “Pesova”; sized for section headings */
 const SECTION_TITLE_CLASS =
   'bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300 bg-clip-text text-center text-3xl font-bold tracking-tight text-transparent [filter:drop-shadow(0_0_28px_rgba(167,139,250,0.55))_drop-shadow(0_0_52px_rgba(34,211,238,0.3))] sm:text-4xl lg:text-5xl motion-reduce:[filter:none]'
+
+function FooterIconGithub(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="size-5" {...props}>
+      <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.416-4.042-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.692 24 18.108 24 12.297c0-6.627-5.373-12-12-12" />
+    </svg>
+  )
+}
+
+function FooterIconLinkedIn(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="size-5" {...props}>
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  )
+}
+
+function FooterIconX(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden className="size-5" {...props}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
 
 function ModalProjectHero({ project }: { project: Project }) {
   const fallback = `/assets/img/logos/${project.image}.webp`
@@ -169,204 +193,303 @@ export function PortfolioApp() {
         id="portfolio-scroll"
         className="portfolio-scroll scrollbar-themed min-h-0 flex-1 overflow-x-hidden overflow-y-auto overscroll-y-contain"
       >
-      <main className="relative z-10">
-        <section
-          id="top"
-          className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-6xl flex-col items-center justify-center px-4 pb-24 pt-28 text-center sm:min-h-[calc(100dvh-5.5rem)] sm:px-6 sm:pt-32"
-        >
-          <h1 className="max-w-4xl">
-            <span
-              className="block bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300 bg-clip-text text-5xl font-bold tracking-tight text-transparent [filter:drop-shadow(0_0_28px_rgba(167,139,250,0.55))_drop-shadow(0_0_52px_rgba(34,211,238,0.3))] sm:text-6xl lg:text-7xl motion-reduce:[filter:none]"
-            >
-              Pesova
-            </span>
-          </h1>
-          <p className="mt-5 text-xl font-bold tracking-tight text-white sm:text-2xl">
+        <main className="relative z-10">
+          <section
+            id="top"
+            className="mx-auto flex min-h-[calc(100dvh-5rem)] max-w-6xl flex-col items-center justify-center px-4 pb-24 pt-28 text-center sm:min-h-[calc(100dvh-5.5rem)] sm:px-6 sm:pt-32"
+          >
+            <h1 className="max-w-4xl">
+              <span
+                className="block bg-gradient-to-r from-fuchsia-400 via-violet-400 to-cyan-300 bg-clip-text text-7xl md:text-8xl font-bold tracking-tight text-transparent [filter:drop-shadow(0_0_28px_rgba(167,139,250,0.55))_drop-shadow(0_0_52px_rgba(34,211,238,0.3))] sm:text-6xl lg:text-7xl motion-reduce:[filter:none] animate-glow"
+              >
+                Pesova
+              </span>
+            </h1>
+            {/* <h2 className="mt-5 text-4xl md:text-4xl font-bold mb-2 animate-float">
             Backend Developer
-          </p>
-          <div
-            className="mx-auto mt-7 h-px w-44 max-w-[90%] rounded-full bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 shadow-[0_0_14px_rgba(167,139,250,0.45)] sm:w-52"
-            aria-hidden
-          />
-          <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/90 sm:text-lg">
-            Delivering powerful backend systems driven by a passion for solving real-world challenges
-            — scalable APIs, secure money flows, and clear architecture with TypeScript, Node.js, and
-            FinTech-grade rigor. Based in Nigeria.
-          </p>
-          <div className="mt-12 flex flex-wrap justify-center gap-4">
-            <a
-              href="#projects"
-              className="rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-violet-600/25 transition hover:bg-violet-500"
-            >
-              View work
-            </a>
-            <a
-              href="#contact"
-              className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
-            >
-              Contact
-            </a>
-          </div>
-        </section>
+          </h2> */}
+            <div className="relative inline-block">
+              <h2 className="mt-5 text-4xl md:text-4xl font-bold mb-4 animate-float">
+              Backend Developer</h2>
+              
+              {/* <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-nebulaPink via-cosmicBlue to-violet-500 animate-pulse"></div> */}
 
-        <section id="about" className="border-t border-white/5 bg-black/20 py-16 sm:py-20">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className={`${SECTION_TITLE_CLASS} mb-10 sm:mb-14`}>About Me</h2>
-            <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
-              <div className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl shadow-2xl lg:mx-0 lg:max-w-none">
-                <img
-                  src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&q=80"
-                  alt="Osueke Pesova workspace"
-                  className="rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              <div
+              className="absolute w-full h-0.5 bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 animate-pulse"
+              aria-hidden
+            />
+            </div>
+            {/* <div
+              className="mx-auto mt-7 h-px w-44 max-w-[90%] rounded-full bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 shadow-[0_0_14px_rgba(167,139,250,0.45)] sm:w-52"
+              aria-hidden
+            /> */}
+            
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
+              Delivering powerful backend systems driven by a passion for solving real-world challenges, scalable APIs, secure money flows, and clear architecture with TypeScript, Node.js, and
+              FinTech-grade rigor. Based in Nigeria.
+            </p>
+            <div className="mt-12 flex flex-wrap justify-center gap-4">
+              <a
+                href="#projects"
+                className="group relative inline-flex rounded-xl shadow-lg shadow-violet-600/25 outline-none transition hover:shadow-violet-500/35 focus-visible:ring-2 focus-visible:ring-violet-400/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050508]"
+              >
+                <span
+                  className="pointer-events-none absolute inset-0 overflow-hidden rounded-xl"
+                  aria-hidden
+                >
+                  <span
+                    className="absolute left-1/2 top-1/2 aspect-square w-[220%] max-w-none bg-[conic-gradient(from_0deg_at_50%_50%,#ddd6fe,#e879f9,#22d3ee,#a78bfa,#f0abfc,#ddd6fe)] motion-reduce:[animation:none] [animation:shiny-cta-border-spin_2.8s_linear_infinite]"
+                  />
+                </span>
+                <span className="relative z-10 m-[2px] rounded-[10px] bg-violet-600 px-6 py-3 text-sm font-semibold text-white transition group-hover:bg-violet-500">
+                  View work
+                </span>
+              </a>
+              <a
+                href="#contact"
+                className="rounded-xl border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10"
+              >
+                Contact
+              </a>
+            </div>
+          </section>
 
-              <div className="text-left">
-                <div className="space-y-4 text-base leading-relaxed text-white/90 sm:text-lg">
-                  <p>
-                    I'm a full stack developer with strong backend focus, building scalable, secure web
-                    applications for real-world domains including payments and financial workflows.
-                  </p>
+          <section id="about" className="border-t border-white/5 bg-black/20 py-16 sm:py-20">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+              <h2 className={`${SECTION_TITLE_CLASS} mb-10 sm:mb-14`}>About Me</h2>
+              <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
+                <div className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl shadow-2xl lg:mx-0 lg:max-w-none">
+                  <img
+                    src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&q=80"
+                    alt="Osueke Pesova"
+                    className="rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
 
-                <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
-                  <div className="rounded-2xl border border-pink-500/45 bg-white/[0.04] p-4 sm:p-5">
-                    <User
-                      className="size-8 stroke-[1.5] text-pink-400 sm:size-9"
-                      aria-hidden
-                    />
-                    <p className="mt-3 text-sm font-medium text-white">Experience</p>
-                    <p className="text-starWhite/70">6 years</p>
-                  </div>
-                  <div className="rounded-2xl border border-sky-500/45 bg-white/[0.04] p-4 sm:p-5">
-                    <Briefcase
-                      className="size-8 stroke-[1.5] text-sky-400 sm:size-9"
-                      aria-hidden
-                    />
-                    <p className="mt-3 text-sm font-medium text-white">Projects</p>
-                    <p className="text-starWhite/70">
-                      8+ Completed
+                <div className="text-left">
+                  <div className="space-y-4 text-base leading-relaxed text-white/90 sm:text-lg">
+                    <p className="leading-relaxed text-white/80">
+                      I'm a full stack developer with strong backend focus, building scalable, secure web
+                      applications for real-world domains including payments and financial workflows.
                     </p>
                   </div>
+
+                  <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6">
+                    <div className="rounded-2xl border border-pink-500/45 bg-white/[0.04] p-4 sm:p-5">
+                      <User
+                        className="size-8 stroke-[1.5] text-pink-400 sm:size-9"
+                        aria-hidden
+                      />
+                      <p className="mt-3 text-sm font-medium text-white">Experience</p>
+                      <p className="text-starWhite/70">6 years</p>
+                    </div>
+                    <div className="rounded-2xl border border-sky-500/45 bg-white/[0.04] p-4 sm:p-5">
+                      <Briefcase
+                        className="size-8 stroke-[1.5] text-sky-400 sm:size-9"
+                        aria-hidden
+                      />
+                      <p className="mt-3 text-sm font-medium text-white">Projects</p>
+                      <p className="text-starWhite/70">
+                        8+ Completed
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <SkillsSection />
+          <SkillsSection />
 
-        <section id="projects" className="overflow-visible py-10">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <h2 className={`${SECTION_TITLE_CLASS} mb-2`}>Featured Projects</h2>
-            <div className="mt-10 grid gap-10 overflow-visible pb-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((p) => (
-                <ProjectCard key={p.name} project={p} onOpenDetails={setModal} />
-              ))}
+          <section id="projects" className="overflow-visible py-10">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+              <h2 className={`${SECTION_TITLE_CLASS} mb-2`}>Featured Projects</h2>
+              <div className="mt-10 grid gap-10 overflow-visible pb-4 pt-2 sm:grid-cols-2 lg:grid-cols-3">
+                {projects.map((p) => (
+                  <ProjectCard key={p.name} project={p} onOpenDetails={setModal} />
+                ))}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section id="contact" className="border-t border-white/5 py-24">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6">
-            <div className="mx-auto max-w-xl rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
-              <h2 className={`${SECTION_TITLE_CLASS}`}>Get In Touch</h2>
-              <p className="mt-3 text-center text-slate-400">
-                Let&apos;s talk about your next project.
-              </p>
-              <form className="mt-8 space-y-4" onSubmit={onSubmitForm}>
-                <input type="hidden" name="_subject" value="New message from Portfolio (React)" />
-                <input type="hidden" name="_format" value="plain" />
-                <div>
-                  <label htmlFor="name" className="sr-only">
-                    Name
-                  </label>
-                  <input
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Name"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="email" className="sr-only">
-                    Email
-                  </label>
-                  <input
-                    id="email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Email"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="sr-only">
-                    Phone
-                  </label>
-                  <input
-                    id="phone"
-                    name="phone"
-                    type="tel"
-                    required
-                    placeholder="Phone"
-                    className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="message" className="sr-only">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={4}
-                    placeholder="Message"
-                    className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
-                  />
-                </div>
-                {formMsg ? (
-                  <p
-                    className={
-                      formMsg.type === 'ok' ? 'text-emerald-400' : 'text-red-300'
-                    }
-                    role="status"
+          <section id="contact" className="border-t border-white/5 py-24">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+              <div className="mx-auto max-w-xl rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-xl">
+                <h2 className={`${SECTION_TITLE_CLASS}`}>Get In Touch</h2>
+                <p className="mt-3 text-center text-slate-400">
+                  Let&apos;s talk about your next project.
+                </p>
+                <form className="mt-8 space-y-4" onSubmit={onSubmitForm}>
+                  <input type="hidden" name="_subject" value="New message from Portfolio (React)" />
+                  <input type="hidden" name="_format" value="plain" />
+                  <div>
+                    <label htmlFor="name" className="sr-only">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      name="name"
+                      required
+                      placeholder="Name"
+                      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="sr-only">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      placeholder="Email"
+                      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="phone" className="sr-only">
+                      Phone
+                    </label>
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="Phone"
+                      className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="sr-only">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={4}
+                      placeholder="Message"
+                      className="w-full resize-none rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-slate-500 outline-none focus:border-violet-500/50"
+                    />
+                  </div>
+                  {formMsg ? (
+                    <p
+                      className={
+                        formMsg.type === 'ok' ? 'text-emerald-400' : 'text-red-300'
+                      }
+                      role="status"
+                    >
+                      {formMsg.text}
+                    </p>
+                  ) : null}
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="w-full rounded-xl bg-violet-600 py-3.5 text-sm font-semibold text-white hover:bg-violet-500 disabled:opacity-60"
                   >
-                    {formMsg.text}
-                  </p>
-                ) : null}
-                <button
-                  type="submit"
-                  disabled={sending}
-                  className="w-full rounded-xl bg-violet-600 py-3.5 text-sm font-semibold text-white hover:bg-violet-500 disabled:opacity-60"
-                >
-                  {sending ? 'Sending…' : 'Send message'}
-                </button>
-              </form>
+                    {sending ? 'Sending…' : 'Send message'}
+                  </button>
+                </form>
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <footer className="border-t border-white/5 py-10 text-center text-sm text-slate-500">
-          <p>Osueke Pesova · Portfolio</p>
-          <div className="mt-4 flex justify-center gap-6">
-            <a href="https://github.com/pesova" className="hover:text-white" target="_blank" rel="noreferrer">
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/pesova-osueke-77904b1b1/"
-              className="hover:text-white"
-              target="_blank"
-              rel="noreferrer"
-            >
-              LinkedIn
-            </a>
-          </div>
-        </footer>
-      </main>
+          <footer className="border-t border-white/10 bg-black/25 py-14 sm:py-16">
+            <div className="mx-auto max-w-6xl px-4 sm:px-6">
+              <div className="grid gap-12 sm:grid-cols-3 sm:gap-10 lg:gap-14">
+                <div className="text-left">
+                  <p className="bg-gradient-to-r from-pink-400 via-fuchsia-500 to-pink-500 bg-clip-text text-xl font-bold tracking-tight text-transparent sm:text-2xl">
+                    Pesova
+                  </p>
+                  <p className="mt-3 max-w-xs text-sm leading-relaxed text-white/80">
+                    Backend developer specializing in TypeScript, Node.js, APIs, and FinTech
+                    backends.
+                  </p>
+                  <div className="mt-5 flex items-center gap-5 text-white/85">
+                    <a
+                      href="https://github.com/pesova"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-white"
+                      aria-label="GitHub"
+                    >
+                      <FooterIconGithub />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/pesova-osueke-77904b1b1/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-white"
+                      aria-label="LinkedIn"
+                    >
+                      <FooterIconLinkedIn />
+                    </a>
+                    <a
+                      href="https://x.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="transition hover:text-white"
+                      aria-label="X"
+                    >
+                      <FooterIconX />
+                    </a>
+                    <a
+                      href="mailto:dev@pesovatech.xyz"
+                      className="transition hover:text-white"
+                      aria-label="Email"
+                    >
+                      <Mail className="size-5" strokeWidth={1.75} />
+                    </a>
+                  </div>
+                </div>
+
+                <div className="text-left">
+                  <h3 className="text-sm font-bold text-white">Quick Links</h3>
+                  <ul className="mt-4 space-y-3 text-sm text-white/90">
+                    <li>
+                      <a href="#about" className="transition hover:text-white">
+                        About
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#projects" className="transition hover:text-white">
+                        Projects
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#skills" className="transition hover:text-white">
+                        Skills
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#contact" className="transition hover:text-white">
+                        Contact
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="text-left">
+                  <h3 className="text-sm font-bold text-white">Get in Touch</h3>
+                  <p className="mt-4 text-sm text-white/90">
+                    Email:{' '}
+                    <a
+                      href="mailto:dev@pesovatech.xyz"
+                      className="text-white underline-offset-2 transition hover:text-white hover:underline"
+                    >
+                      dev@pesovatech.xyz
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-slate-400 sm:text-sm">
+                © 2026 Osueke Pesova. All rights reserved.
+              </div>
+            </div>
+          </footer>
+        </main>
       </div>
 
       <ProjectModal project={modal} onClose={() => setModal(null)} />
