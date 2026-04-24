@@ -289,8 +289,6 @@ export function PortfolioApp() {
             </div>
           </section>
 
-          <SkillsSection />
-
           <section id="projects" className="overflow-visible py-10">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <h2 className={`${SECTION_TITLE_CLASS} mb-2`}>Featured Projects</h2>
@@ -301,6 +299,8 @@ export function PortfolioApp() {
               </div>
             </div>
           </section>
+
+          <SkillsSection />
 
           <section id="contact" className="border-t border-white/5 py-24">
             <div className="mx-auto max-w-6xl px-4 sm:px-6">

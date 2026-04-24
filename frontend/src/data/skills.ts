@@ -34,29 +34,14 @@ export const skillLogos: SkillLogo[] = [
     title: 'AWS',
   },
   {
-    src: `${D}/githubactions/githubactions-original-wordmark.svg`,
-    alt: 'GitHub Actions',
-    title: 'CI/CD',
-  },
-  {
     src: `${D}/mysql/mysql-original-wordmark.svg`,
     alt: 'MySQL',
     title: 'MySQL',
   },
   {
-    src: `${D}/web3js/web3js-original.svg`,
-    alt: 'Web3.js',
-    title: 'Web3.js',
-  },
-  {
     src: `${D}/redis/redis-original-wordmark.svg`,
     alt: 'Redis',
     title: 'Redis',
-  },
-  {
-    src: `${D}/git/git-original-wordmark.svg`,
-    alt: 'Git',
-    title: 'Git',
   },
   {
     src: `${D}/postgresql/postgresql-original-wordmark.svg`,
@@ -69,34 +54,14 @@ export const skillLogos: SkillLogo[] = [
     title: 'MongoDB',
   },
   {
-    src: `${D}/tailwindcss/tailwindcss-original-wordmark.svg`,
-    alt: 'Tailwind CSS',
-    title: 'Tailwind CSS',
-  },
-  {
     src: `${D}/php/php-original.svg`,
     alt: 'PHP',
     title: 'PHP',
   },
   {
-    src: `${D}/react/react-original-wordmark.svg`,
-    alt: 'React',
-    title: 'React',
-  },
-  {
     src: `${D}/docker/docker-original-wordmark.svg`,
     alt: 'Docker',
     title: 'Docker',
-  },
-  {
-    src: `${D}/css3/css3-original-wordmark.svg`,
-    alt: 'CSS',
-    title: 'CSS',
-  },
-  {
-    src: `${D}/digitalocean/digitalocean-original-wordmark.svg`,
-    alt: 'digitalocean',
-    title: 'digitalocean',
   },
   {
     src: `${D}/nextjs/nextjs-original.svg`,
