@@ -145,7 +145,7 @@ export function PortfolioApp() {
       })
       const data = (await res.json()) as { ok?: boolean }
       if (res.ok && data.ok) {
-        setFormMsg({ type: 'ok', text: 'Message sent — thank you.' })
+        setFormMsg({ type: 'ok', text: 'Thank you for contacting me.' })
         form.reset()
       } else {
         setFormMsg({ type: 'err', text: 'Could not send. Try again or email directly.' })
@@ -416,7 +416,7 @@ export function PortfolioApp() {
                       <FooterIconLinkedIn />
                     </a>
                     <a
-                      href="https://x.com"
+                      href="https://x.com/pesova2"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="transition hover:text-white"

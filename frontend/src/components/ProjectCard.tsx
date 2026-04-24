@@ -46,7 +46,7 @@ export function ProjectCard({ project, onOpenDetails }: ProjectCardProps) {
           <div
             role="button"
             tabIndex={0}
-            aria-label={`${project.name} — open details`}
+            aria-label={`${project.name} - open details`}
             className="cursor-pointer text-left outline-none focus-visible:ring-2 focus-visible:ring-violet-500/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0f]"
             onClick={() => onOpenDetails(project)}
             onKeyDown={onKeyOpen}

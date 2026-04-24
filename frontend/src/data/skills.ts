@@ -1,4 +1,3 @@
-/** LogoLoop image entries — wordmarks from devicon CDN (no links). */
 export type SkillLogo = {
   src: string
   alt: string
