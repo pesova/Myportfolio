@@ -7,7 +7,7 @@ export type Project = {
   category: string
   /** Logo slug under `/assets/img/logos/*.webp` (modal fallback). */
   image: string
-  /** Screenshot filename under `/assets/img/projects_screenshot/`. Omit to use logo only. */
+  /** Screenshot filename under `/assets/img/projects_screenshot/` (prefer `.webp`). Omit to use logo only. */
   screenshot?: string
   siteUrl?: string
   docsUrl?: string
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     client: 'LiquidRamp',
     category: 'FinTech Core Infrastructure',
     image: 'liquidramp',
-    screenshot: 'liquidramp.png',
+    screenshot: 'liquidramp.webp',
     siteUrl: 'https://liquidramp.com',
     stack: ['TypeScript', 'Node.js', 'MySQL', 'AWS'],
   },
@@ -49,7 +49,7 @@ export const projects: Project[] = [
     client: 'Sustainology',
     category: 'FinTech / Web3 API',
     image: 'sustainology',
-    screenshot: 'carbon.png',
+    screenshot: 'carbon.webp',
     siteUrl: 'https://sustainology-dev.fracxn.com',
     docsUrl: 'https://sustainology-dev.fracxn.com/api/docs',
     stack: ['TypeScript', 'Node.js', 'Web3', 'React'],
@@ -63,7 +63,7 @@ export const projects: Project[] = [
     client: 'Fracxn',
     category: 'FinTech API',
     image: 'fracxn',
-    screenshot: 'fracxn-marketplace.png',
+    screenshot: 'fracxn-marketplace.webp',
     siteUrl: 'https://sandbox.marketplace.fracxn.com',
     stack: ['Laravel', 'Node.js', 'MySQL', 'TypeScript'],
   },
@@ -76,7 +76,7 @@ export const projects: Project[] = [
     client: 'Dexfiat',
     category: 'FinTech / Crypto Exchange',
     image: 'dexfiat',
-    screenshot: 'dexfiat.png',
+    screenshot: 'dexfiat.webp',
     siteUrl: 'https://dexfiat.exchange',
     stack: ['Node.js', 'MySQL', 'WebSockets', 'FinTech'],
   },
@@ -89,7 +89,7 @@ export const projects: Project[] = [
     client: 'Sakora',
     category: 'FinTech Backend',
     image: 'sakora',
-    screenshot: 'sakora.png',
+    screenshot: 'sakora.webp',
     siteUrl: 'https://dev.sakora.io',
     docsUrl: 'https://dev.sakora.io/api/b2c/v1/docs/',
     stack: ['Node.js', 'Crypto', 'Laravel', 'AWS'],
@@ -103,7 +103,7 @@ export const projects: Project[] = [
     client: 'Wealth Vault',
     category: 'Financial API',
     image: 'wealthvault',
-    screenshot: 'fracxn-wealthvault.png',
+    screenshot: 'fracxn-wealthvault.webp',
     docsUrl: 'https://documenter.getpostman.com/view/11742809/2sA3XWdyhR',
     stack: ['Node.js', 'MongoDB', 'Postman', 'AWS'],
   },

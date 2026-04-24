@@ -248,13 +248,13 @@ export function PortfolioApp() {
             <div className="mx-auto max-w-6xl px-4 sm:px-6">
               <h2 className={`${SECTION_TITLE_CLASS} mb-10 sm:mb-14`}>About Me</h2>
               <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-12">
-                <div className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl shadow-2xl lg:mx-0 lg:max-w-none">
-                  <img
-                    src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&q=80"
+              <div className="group relative mx-auto w-full max-w-lg overflow-hidden rounded-2xl shadow-2xl lg:mx-0 lg:max-w-none aspect-[4/3]">
+              <img
+                    src="https://images.unsplash.com/photo-1629904853716-f0bc54eea481?auto=format&fit=crop&q=60&w=960"
                     alt="Osueke Pesova"
                     className="rounded-2xl shadow-2xl transform group-hover:scale-105 transition-transform duration-500"
                   />
-                </div>
+              </div>
 
                 <div className="text-left">
                   <div className="space-y-4 text-base leading-relaxed text-white/90 sm:text-lg">

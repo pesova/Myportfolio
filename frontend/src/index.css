@@ -15,7 +15,8 @@
     @apply font-sans;
   }
   body {
-    @apply antialiased bg-background text-foreground;
+    @apply antialiased text-foreground;
+    background-color: #04010f;
   }
   * {
     @apply border-border outline-ring/50;
