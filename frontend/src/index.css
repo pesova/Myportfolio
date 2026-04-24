@@ -138,6 +138,125 @@
   }
 }
 
+@keyframes deep-space-drift {
+  0% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  50% {
+    transform: scale(1.08) translate3d(-1.5%, -1%, 0);
+  }
+  100% {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes deep-space-pan-near {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-70px, -45px, 0);
+  }
+}
+
+@keyframes deep-space-pan-far {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(-35px, -22px, 0) scale(1.02);
+  }
+}
+
+@keyframes meteor-fall {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translate3d(-260px, 260px, 0) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+.deep-space-gradient {
+  animation: deep-space-drift 28s ease-in-out infinite;
+}
+
+.deep-space-stars {
+  background-repeat: repeat;
+  opacity: 0.85;
+}
+
+.deep-space-stars.near {
+  background-image:
+    radial-gradient(4px 4px at 24px 36px, rgba(255, 255, 255, 0.95), transparent 65%),
+    radial-gradient(3.5px 3.5px at 86px 112px, rgba(255, 255, 255, 0.8), transparent 65%),
+    radial-gradient(2.8px 2.8px at 144px 72px, rgba(220, 234, 255, 0.82), transparent 65%),
+    radial-gradient(2.2px 2.2px at 188px 156px, rgba(255, 255, 255, 0.75), transparent 65%);
+  background-size: 260px 220px;
+  animation: deep-space-pan-near 42s linear infinite;
+}
+
+.deep-space-stars.far {
+  background-image:
+    radial-gradient(1px 1px at 34px 42px, rgba(255, 255, 255, 0.7), transparent 65%),
+    radial-gradient(1px 1px at 126px 92px, rgba(210, 224, 255, 0.62), transparent 65%),
+    radial-gradient(0.8px 0.8px at 174px 28px, rgba(255, 255, 255, 0.55), transparent 65%),
+    radial-gradient(0.9px 0.9px at 228px 166px, rgba(255, 255, 255, 0.58), transparent 65%);
+  background-size: 300px 260px;
+  opacity: 0.62;
+  animation: deep-space-pan-far 62s linear infinite;
+}
+
+.deep-space-meteor {
+  position: absolute;
+  width: 2px;
+  height: 90px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.85));
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.28));
+  opacity: 0;
+  animation-name: meteor-fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.deep-space-meteor.meteor-a {
+  left: 72%;
+  top: -12%;
+  animation-duration: 4.4s;
+  animation-delay: 0.4s;
+}
+
+.deep-space-meteor.meteor-b {
+  left: 46%;
+  top: -20%;
+  height: 68px;
+  opacity: 0.75;
+  animation-duration: 5.8s;
+  animation-delay: 2s;
+}
+
+.deep-space-meteor.meteor-c {
+  left: 86%;
+  top: -16%;
+  height: 58px;
+  opacity: 0.62;
+  animation-duration: 6.6s;
+  animation-delay: 3.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .deep-space-gradient,
+  .deep-space-stars,
+  .deep-space-meteor {
+    animation: none !important;
+  }
+}
+
 @theme inline {
   --font-heading: var(--font-sans);
   --font-sans: 'Geist Variable', sans-serif;

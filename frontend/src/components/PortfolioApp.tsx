@@ -205,24 +205,14 @@ export function PortfolioApp() {
                 Pesova
               </span>
             </h1>
-            {/* <h2 className="mt-5 text-4xl md:text-4xl font-bold mb-2 animate-float">
-            Backend Developer
-          </h2> */}
             <div className="relative inline-block">
               <h2 className="mt-5 text-4xl md:text-4xl font-bold mb-4 animate-float">
               Backend Developer</h2>
-              
-              {/* <div className="absolute -bottom-2 left-0 w-full h-0.5 bg-gradient-to-r from-nebulaPink via-cosmicBlue to-violet-500 animate-pulse"></div> */}
-
               <div
               className="absolute w-full h-0.5 bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 animate-pulse"
               aria-hidden
             />
             </div>
-            {/* <div
-              className="mx-auto mt-7 h-px w-44 max-w-[90%] rounded-full bg-gradient-to-r from-fuchsia-500 via-violet-400 to-cyan-400 opacity-95 shadow-[0_0_14px_rgba(167,139,250,0.45)] sm:w-52"
-              aria-hidden
-            /> */}
             
             <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">
               Delivering powerful backend systems driven by a passion for solving real-world challenges, scalable APIs, secure money flows, and clear architecture with TypeScript, Node.js, and
@@ -448,22 +438,22 @@ export function PortfolioApp() {
                   <h3 className="text-sm font-bold text-white">Quick Links</h3>
                   <ul className="mt-4 space-y-3 text-sm text-white/90">
                     <li>
-                      <a href="#about" className="transition hover:text-white">
+                      <a href="#about" className="text-white/70 transition hover:text-white">
                         About
                       </a>
                     </li>
                     <li>
-                      <a href="#projects" className="transition hover:text-white">
+                      <a href="#projects" className="text-white/70 transition hover:text-white">
                         Projects
                       </a>
                     </li>
                     <li>
-                      <a href="#skills" className="transition hover:text-white">
+                      <a href="#skills" className="text-white/70 transition hover:text-white">
                         Skills
                       </a>
                     </li>
                     <li>
-                      <a href="#contact" className="transition hover:text-white">
+                      <a href="#contact" className="text-white/70 transition hover:text-white">
                         Contact
                       </a>
                     </li>
@@ -472,11 +462,11 @@ export function PortfolioApp() {
 
                 <div className="text-left">
                   <h3 className="text-sm font-bold text-white">Get in Touch</h3>
-                  <p className="mt-4 text-sm text-white/90">
+                  <p className="mt-4 text-sm text-white/80">
                     Email:{' '}
                     <a
                       href="mailto:dev@pesovatech.xyz"
-                      className="text-white underline-offset-2 transition hover:text-white hover:underline"
+                      className="leading-relaxed text-white/80 underline-offset-2 transition hover:text-white hover:underline"
                     >
                       dev@pesovatech.xyz
                     </a>
@@ -484,7 +474,7 @@ export function PortfolioApp() {
                 </div>
               </div>
 
-              <div className="mt-12 border-t border-white/10 pt-8 text-center text-xs text-slate-400 sm:text-sm">
+              <div className="text-white/50 mt-12 border-t border-white/10 pt-8 text-center text-xs text-slate-400 sm:text-sm">
                 © 2026 Osueke Pesova. All rights reserved.
               </div>
             </div>
