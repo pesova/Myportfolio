@@ -1,0 +1,8 @@
+# Pesova portfolio
+# Crawlers may index all public pages.
+
+User-agent: *
+Allow: /
+
+# When you publish a sitemap, use a full URL on your live domain, e.g.:
+# Sitemap: https://pesovatech.xyz
